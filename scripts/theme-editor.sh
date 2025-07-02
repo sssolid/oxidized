@@ -64,7 +64,7 @@ edit_color_palette() {
         menu_items+=("🎨 $color: $current_value")
     done
 
-    menu_items+=("➕ Add New Color" "🔙 Back to Categories")
+    menu_items+=("➕ Add New Color" "← Back to Categories")
 
     local selected=$(printf '%s\n' "${menu_items[@]}" | \
         rofi -dmenu -p "🎨 Edit $category Colors" \
@@ -75,7 +75,7 @@ edit_color_palette() {
         "➕ Add New Color")
             add_new_color "$category"
             ;;
-        "🔙 Back to Categories")
+        "← Back to Categories")
             return 0
             ;;
         *)
@@ -97,7 +97,7 @@ edit_single_color() {
         "🎨 Change Color Value"
         "👁️ Preview Color"
         "🗑️ Delete Color"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${options[@]}" | \
@@ -432,11 +432,11 @@ show_theme_editor() {
     local main_menu=(
         "🎨 Color Palette"
         "📝 Typography"
-        "📏 Spacing & Layout"
-        "✨ Effects & Animations"
+        "📏 Spacing &amp; Layout"
+        "✨ Effects &amp; Animations"
         "🔄 Apply All Changes"
         "👁️ Preview Current Theme"
-        "💾 Save & Exit"
+        "💾 Save &amp; Exit"
     )
 
     local selected=$(printf '%s\n' "${main_menu[@]}" | \
@@ -451,10 +451,10 @@ show_theme_editor() {
         "📝 Typography")
             edit_typography
             ;;
-        "📏 Spacing & Layout")
+        "📏 Spacing &amp; Layout")
             edit_spacing
             ;;
-        "✨ Effects & Animations")
+        "✨ Effects &amp; Animations")
             edit_effects
             ;;
         "🔄 Apply All Changes")
@@ -463,7 +463,7 @@ show_theme_editor() {
         "👁️ Preview Current Theme")
             preview_theme
             ;;
-        "💾 Save & Exit")
+        "💾 Save &amp; Exit")
             apply_theme_changes
             return 0
             ;;

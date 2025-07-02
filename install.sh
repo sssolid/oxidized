@@ -17,7 +17,7 @@ NC='\033[0m' # No Color
 # Configuration
 INSTALL_DIR="$HOME/.config"
 HYPR_SYSTEM_DIR="$INSTALL_DIR/hypr-system"
-GITHUB_REPO="https://github.com/your-repo/hypr-cyberpunk-medieval"
+GITHUB_REPO="https://github.com/sssolid/oxidized"
 BACKUP_DIR="$HOME/.config-backup-$(date +%Y%m%d_%H%M%S)"
 
 # System detection
@@ -99,8 +99,8 @@ PACKAGES[network]="networkmanager bluez bluez-utils blueman"
 # Fonts
 PACKAGES[fonts]="ttf-jetbrains-mono nerd-fonts"
 
-# AUR packages (Arch only)
-PACKAGES[aur]="eww-wayland rofi-wayland zerotier-one"
+# AUR packages
+PACKAGES[aur]="eww rofi zerotier-one"
 
 # Install packages based on system
 install_packages() {

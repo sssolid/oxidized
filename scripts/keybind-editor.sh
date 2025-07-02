@@ -113,7 +113,7 @@ manage_categories() {
         menu_items+=("📁 $category_name ($binding_count bindings)")
     done
 
-    menu_items+=("➕ Add New Category" "🔙 Back to Main Menu")
+    menu_items+=("➕ Add New Category" "← Back to Main Menu")
 
     local selected=$(printf '%s\n' "${menu_items[@]}" | \
         rofi -dmenu -p "📁 Manage Categories" \
@@ -124,7 +124,7 @@ manage_categories() {
         "➕ Add New Category")
             create_new_category
             ;;
-        "🔙 Back to Main Menu")
+        "← Back to Main Menu")
             return 0
             ;;
         *)
@@ -194,7 +194,7 @@ manage_category_bindings() {
         menu_items+=("⌨️ $formatted_key → $description")
     done
 
-    menu_items+=("➕ Add New Binding" "⚙️ Category Settings" "🔙 Back")
+    menu_items+=("➕ Add New Binding" "⚙️ Category Settings" "← Back")
 
     local selected=$(printf '%s\n' "${menu_items[@]}" | \
         rofi -dmenu -p "⌨️ $category_name Bindings" \
@@ -208,7 +208,7 @@ manage_category_bindings() {
         "⚙️ Category Settings")
             edit_category_settings "$category"
             ;;
-        "🔙 Back")
+        "← Back")
             return 0
             ;;
         *)
@@ -222,7 +222,7 @@ manage_category_bindings() {
     esac
 
     # Return to same menu unless going back
-    if [[ "$selected" != "🔙 Back" ]]; then
+    if [[ "$selected" != "← Back" ]]; then
         manage_category_bindings "$category"
     fi
 }
@@ -285,7 +285,7 @@ edit_binding_dialog() {
         "🔧 Change Binding Type"
         "🧪 Test Binding"
         "🗑️ Delete Binding"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${options[@]}" | \
@@ -340,13 +340,13 @@ edit_binding_dialog() {
                 return 0  # Exit to category menu
             fi
             ;;
-        "🔙 Back")
+        "← Back")
             return 0
             ;;
     esac
 
     # Return to edit dialog unless deleting or going back
-    if [[ "$selected" != "🗑️ Delete Binding" && "$selected" != "🔙 Back" ]]; then
+    if [[ "$selected" != "🗑️ Delete Binding" && "$selected" != "← Back" ]]; then
         edit_binding_dialog "$category" "$key"
     fi
 }
@@ -378,7 +378,7 @@ edit_category_settings() {
         "📝 Edit Category Name"
         "🎨 Change Icon"
         "🗑️ Delete Category"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${options[@]}" | \
@@ -521,7 +521,7 @@ show_keybind_editor() {
         "🔄 Apply Changes"
         "📄 Export Bindings"
         "📥 Import Bindings"
-        "💾 Save & Exit"
+        "💾 Save &amp; Exit"
     )
 
     local selected=$(printf '%s\n' "${main_menu[@]}" | \
@@ -548,7 +548,7 @@ show_keybind_editor() {
         "📥 Import Bindings")
             import_bindings
             ;;
-        "💾 Save & Exit")
+        "💾 Save &amp; Exit")
             apply_keybind_changes
             return 0
             ;;

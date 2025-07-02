@@ -12,12 +12,14 @@ exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec-once = waybar
 exec-once = dunst
 exec-once = swww init
+exec-once = hyprpm reload -n
 
 # Background services
 exec-once = pipewire
 exec-once = wireplumber
 exec-once = blueman-applet
 exec-once = nm-applet
+exec-once = udiskie --tray --notify
 
 # EWW widgets (if available)
 exec-once = [[ -f ~/.config/eww/hotkey-display/eww.yuck ]] && eww daemon

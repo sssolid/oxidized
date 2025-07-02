@@ -59,11 +59,11 @@ yay -S eww-wayland rofi-wayland zerotier-one
 ### Installation
 ```bash
 # Download and run installer
-curl -sSL https://raw.githubusercontent.com/your-repo/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/sssolid/oxidized/master/install.sh | bash
 
 # Or manually:
-git clone https://github.com/your-repo/hypr-cyberpunk-medieval.git
-cd hypr-cyberpunk-medieval
+git clone https://github.com/sssolid/oxidized.git
+cd oxidized
 chmod +x install.sh
 ./install.sh
 ```
@@ -417,8 +417,8 @@ sudo pacman -Syu  # Arch Linux
 ### Development Setup
 ```bash
 # Fork the repository
-git clone https://github.com/your-username/hypr-cyberpunk-medieval.git
-cd hypr-cyberpunk-medieval
+git clone https://github.com/sssolid/oxidized.git
+cd oxidized
 
 # Create feature branch
 git checkout -b feature/your-feature
@@ -443,6 +443,6 @@ MIT License - See LICENSE file for details
 
 ---
 
-**🗡️ May your desktop be ever cyberpunk and your windows ever managed! 🤖**
+**🗡️ May your desktop be ever oxidized and your windows ever managed! 🤖**
 
-For more information, visit: [GitHub Repository](https://github.com/your-repo/hypr-cyberpunk-medieval)
+For more information, visit: [GitHub Repository](https://github.com/sssolid/oxidized)

@@ -79,7 +79,7 @@ show_wallpaper_gallery() {
     done
 
     # Add management options
-    menu_items+=("" "🎲 Random Wallpaper" "🔄 Cycle Next" "⏰ Time-based Selection" "➕ Add Wallpapers" "🗑️ Remove Wallpapers" "🔙 Back")
+    menu_items+=("" "🎲 Random Wallpaper" "🔄 Cycle Next" "⏰ Time-based Selection" "➕ Add Wallpapers" "🗑️ Remove Wallpapers" "← Back")
 
     local selected=$(printf '%s\n' "${menu_items[@]}" | \
         rofi -dmenu -p "🖼️ $theme Wallpapers" \
@@ -103,7 +103,7 @@ show_wallpaper_gallery() {
         "🗑️ Remove Wallpapers")
             remove_wallpapers_dialog "$theme"
             ;;
-        "🔙 Back")
+        "← Back")
             return 0
             ;;
         "")
@@ -138,7 +138,7 @@ show_wallpaper_options() {
         "✏️ Rename Wallpaper"
         "📁 Open in File Manager"
         "🗑️ Delete Wallpaper"
-        "🔙 Back to Gallery"
+        "← Back to Gallery"
     )
 
     local selected=$(printf '%s\n' "${options[@]}" | \
@@ -164,7 +164,7 @@ show_wallpaper_options() {
         "🗑️ Delete Wallpaper")
             delete_wallpaper "$wallpaper_path"
             ;;
-        "🔙 Back to Gallery")
+        "← Back to Gallery")
             show_wallpaper_gallery "$theme"
             ;;
     esac
@@ -288,7 +288,7 @@ add_wallpapers_dialog() {
         "🌐 Download from URL"
         "📋 Copy from Clipboard Path"
         "🎨 Generate Gradient"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${options[@]}" | \
@@ -427,7 +427,7 @@ remove_wallpapers_dialog() {
         menu_items+=("🗑️ $basename")
     done
 
-    menu_items+=("🗑️ Delete All Wallpapers" "🔙 Cancel")
+    menu_items+=("🗑️ Delete All Wallpapers" "← Cancel")
 
     local selected=$(printf '%s\n' "${menu_items[@]}" | \
         rofi -dmenu -p "🗑️ Remove Wallpapers" \
@@ -442,7 +442,7 @@ remove_wallpapers_dialog() {
                 notify-send "🗑️ All Deleted" "All wallpapers removed from $theme" -t 3000
             fi
             ;;
-        "🔙 Cancel")
+        "← Cancel")
             return 0
             ;;
         *)
@@ -474,7 +474,7 @@ manage_themes() {
         fi
     done
 
-    menu_items+=("➕ Create New Theme" "🗑️ Delete Theme" "🔙 Back")
+    menu_items+=("➕ Create New Theme" "🗑️ Delete Theme" "← Back")
 
     local selected=$(printf '%s\n' "${menu_items[@]}" | \
         rofi -dmenu -p "🎨 Wallpaper Themes" \
@@ -488,7 +488,7 @@ manage_themes() {
         "🗑️ Delete Theme")
             delete_theme_dialog
             ;;
-        "🔙 Back")
+        "← Back")
             return 0
             ;;
         *)
@@ -570,7 +570,7 @@ show_wallpaper_manager() {
         "🔄 Cycle Next"
         "⏰ Time-based Selection"
         "⚙️ Wallpaper Settings"
-        "💾 Save & Exit"
+        "💾 Save &amp; Exit"
     )
 
     local selected=$(printf '%s\n' "${main_menu[@]}" | \
@@ -597,7 +597,7 @@ show_wallpaper_manager() {
         "⚙️ Wallpaper Settings")
             show_wallpaper_settings
             ;;
-        "💾 Save & Exit")
+        "💾 Save &amp; Exit")
             return 0
             ;;
         *)
@@ -617,7 +617,7 @@ show_wallpaper_settings() {
         "🎭 Link to Theme Changes"
         "📁 Open Wallpaper Directory"
         "🧹 Clean Up Broken Links"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${settings_menu[@]}" | \

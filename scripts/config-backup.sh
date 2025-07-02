@@ -478,7 +478,7 @@ manage_backup_storage() {
         "📦 Compress Backups"
         "📁 Open Backup Directory"
         "⚙️ Backup Settings"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${storage_menu[@]}" | \
@@ -533,7 +533,7 @@ clean_old_backups() {
         "🗑️ Remove backups older than 7 days"
         "🗑️ Keep only last 10 backups"
         "🗑️ Keep only last 5 backups"
-        "🔙 Cancel"
+        "← Cancel"
     )
 
     local selected=$(printf '%s\n' "${cleanup_options[@]}" | \
@@ -575,7 +575,7 @@ show_backup_manager() {
         "📥 Import Backup"
         "🗑️ Delete Backup"
         "💾 Backup Storage Management"
-        "💾 Save & Exit"
+        "💾 Save &amp; Exit"
     )
 
     local selected=$(printf '%s\n' "${main_menu[@]}" | \
@@ -611,7 +611,7 @@ show_backup_manager() {
         "💾 Backup Storage Management")
             manage_backup_storage
             ;;
-        "💾 Save & Exit")
+        "💾 Save &amp; Exit")
             return 0
             ;;
         *)

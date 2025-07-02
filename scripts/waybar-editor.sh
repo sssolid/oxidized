@@ -68,13 +68,13 @@ set_waybar_config() {
 # Function to manage Waybar modules
 manage_modules() {
     local module_menu=(
-        "⬅️ Left Modules"
-        "🎯 Center Modules"
-        "➡️ Right Modules"
+        " Left Modules"
+        " Center Modules"
+        " Right Modules"
         "➕ Add Custom Module"
         "🗑️ Remove Module"
         "⚙️ Configure Module"
-        "🔙 Back to Main Menu"
+        "← Back to Main Menu"
     )
 
     local selected=$(printf '%s\n' "${module_menu[@]}" | \
@@ -82,13 +82,13 @@ manage_modules() {
         -theme "$ROFI_THEME")
 
     case "$selected" in
-        "⬅️ Left Modules")
+        " Left Modules")
             manage_module_section "modules-left"
             ;;
-        "🎯 Center Modules")
+        " Center Modules")
             manage_module_section "modules-center"
             ;;
-        "➡️ Right Modules")
+        " Right Modules")
             manage_module_section "modules-right"
             ;;
         "➕ Add Custom Module")
@@ -100,7 +100,7 @@ manage_modules() {
         "⚙️ Configure Module")
             configure_module
             ;;
-        "🔙 Back to Main Menu")
+        "← Back to Main Menu")
             return 0
             ;;
     esac
@@ -125,7 +125,7 @@ manage_module_section() {
         ((index++))
     done
 
-    menu_items+=("➕ Add Module" "🔄 Reorder Modules" "🗑️ Clear All" "🔙 Back")
+    menu_items+=("➕ Add Module" "🔄 Reorder Modules" "🗑️ Clear All" "← Back")
 
     local selected=$(printf '%s\n' "${menu_items[@]}" | \
         rofi -dmenu -p "$section_name Modules" \
@@ -144,7 +144,7 @@ manage_module_section() {
                 notify-send "🗑️ Modules Cleared" "All modules removed from $section_name" -t 3000
             fi
             ;;
-        "🔙 Back")
+        "← Back")
             return 0
             ;;
         *)
@@ -156,7 +156,7 @@ manage_module_section() {
     esac
 
     # Return to same section unless going back
-    if [[ "$selected" != "🔙 Back" ]]; then
+    if [[ "$selected" != "← Back" ]]; then
         manage_module_section "$section"
     fi
 }
@@ -274,7 +274,7 @@ configure_specific_module() {
         "🎨 Style Options"
         "🔧 Advanced Settings"
         "🗑️ Remove from All Sections"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${config_options[@]}" | \
@@ -515,12 +515,12 @@ edit_custom_module_json() {
 # Function to manage Waybar appearance
 manage_appearance() {
     local appearance_menu=(
-        "📐 Bar Dimensions"
+        "📏 Bar Dimensions"
         "🎨 Colors & Themes"
         "📝 Fonts & Typography"
         "🖼️ Transparency & Effects"
         "📊 Module Spacing"
-        "🔙 Back to Main Menu"
+        "← Back to Main Menu"
     )
 
     local selected=$(printf '%s\n' "${appearance_menu[@]}" | \
@@ -610,11 +610,11 @@ apply_changes() {
 show_waybar_editor() {
     local main_menu=(
         "📊 Manage Modules"
-        "🎨 Appearance & Styling"
+        "🎨 Appearance &amp; Styling"
         "⚙️ General Settings"
         "🔄 Apply Changes"
         "👁️ Preview Configuration"
-        "💾 Save & Exit"
+        "💾 Save &amp; Exit"
     )
 
     local selected=$(printf '%s\n' "${main_menu[@]}" | \
@@ -626,7 +626,7 @@ show_waybar_editor() {
         "📊 Manage Modules")
             manage_modules
             ;;
-        "🎨 Appearance & Styling")
+        "🎨 Appearance &amp; Styling")
             manage_appearance
             ;;
         "⚙️ General Settings")
@@ -638,7 +638,7 @@ show_waybar_editor() {
         "👁️ Preview Configuration")
             preview_waybar_config
             ;;
-        "💾 Save & Exit")
+        "💾 Save &amp; Exit")
             apply_changes
             return 0
             ;;
@@ -659,7 +659,7 @@ edit_general_settings() {
         "⏱️ Update Intervals"
         "🖱️ Mouse Interactions"
         "📐 Layer Settings"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${settings_menu[@]}" | \

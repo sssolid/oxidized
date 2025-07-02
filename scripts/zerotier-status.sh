@@ -3,7 +3,7 @@
 # Provides status information for Waybar and system monitoring
 
 # Check if ZeroTier is installed
-if ! command -v zerotier-cli >/dev/null 2>&1; then
+if ! command -v sudo zerotier-cli >/dev/null 2>&1; then
     echo "N/A"
     exit 0
 fi
@@ -17,7 +17,7 @@ fi
 # Function to get ZeroTier status
 get_zerotier_status() {
     local status_output
-    status_output=$(zerotier-cli info 2>/dev/null)
+    status_output=$(sudo zerotier-cli info 2>/dev/null)
 
     if [[ $? -ne 0 ]]; then
         echo "Error"
@@ -61,7 +61,7 @@ get_zerotier_status() {
 # Function to get detailed status for tooltip
 get_detailed_status() {
     local info_output
-    info_output=$(zerotier-cli info 2>/dev/null)
+    info_output=$(sudo zerotier-cli info 2>/dev/null)
 
     if [[ $? -ne 0 ]]; then
         echo "ZeroTier: Service Error"
@@ -73,7 +73,7 @@ get_detailed_status() {
     local status=$(echo "$info_output" | awk '{print $5}')
 
     local networks_output
-    networks_output=$(zerotier-cli listnetworks 2>/dev/null)
+    networks_output=$(sudo zerotier-cli listnetworks 2>/dev/null)
 
     echo "ZeroTier Node: ${node_id:0:10}..."
     echo "Version: $version"
@@ -86,9 +86,9 @@ get_detailed_status() {
             if [[ "$line" =~ ^[0-9a-f]{16} ]]; then
                 local net_id=$(echo "$line" | awk '{print $1}')
                 local net_name=$(echo "$line" | awk '{print $2}')
-                local net_status=$(echo "$line" | awk '{print $3}')
-                local net_type=$(echo "$line" | awk '{print $4}')
-                local net_ip=$(echo "$line" | awk '{print $9}')
+                local net_status=$(echo "$line" | awk '{print $4}')
+                local net_type=$(echo "$line" | awk '{print $5}')
+                local net_ip=$(echo "$line" | awk '{print $7}')
 
                 echo "  ${net_name:-Unknown} (${net_id:0:8}...)"
                 echo "    Status: $net_status"
@@ -163,7 +163,7 @@ control_zerotier() {
             ;;
         "join")
             if [[ -n "$2" ]]; then
-                zerotier-cli join "$2"
+                sudo zerotier-cli join "$2"
                 notify-send "🌐 ZeroTier" "Joining network $2..." -t 3000
             else
                 echo "Usage: $0 control join <network_id>"
@@ -171,7 +171,7 @@ control_zerotier() {
             ;;
         "leave")
             if [[ -n "$2" ]]; then
-                zerotier-cli leave "$2"
+                sudo zerotier-cli leave "$2"
                 notify-send "🌐 ZeroTier" "Leaving network $2..." -t 3000
             else
                 echo "Usage: $0 control leave <network_id>"
@@ -255,7 +255,7 @@ show_network_menu() {
             if [[ "$selected" =~ ^[✅❌] ]]; then
                 local net_name=$(echo "$selected" | sed 's/^[✅❌] //')
                 # Find network ID by name
-                local net_id=$(zerotier-cli listnetworks | grep "$net_name" | awk '{print $1}')
+                local net_id=$(sudo zerotier-cli listnetworks | grep "$net_name" | awk '{print $1}')
                 if [[ -n "$net_id" ]]; then
                     local actions=("📊 Network Info" "❌ Leave Network")
                     local action=$(printf '%s\n' "${actions[@]}" | \
@@ -263,7 +263,7 @@ show_network_menu() {
 
                     case "$action" in
                         "📊 Network Info")
-                            zerotier-cli listnetworks | grep "$net_id" | rofi -dmenu -p "Network Info" -no-custom
+                            sudo zerotier-cli listnetworks | grep "$net_id" | rofi -dmenu -p "Network Info" -no-custom
                             ;;
                         "❌ Leave Network")
                             control_zerotier "leave" "$net_id"

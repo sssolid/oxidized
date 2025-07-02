@@ -29,7 +29,7 @@ manage_hyprland_settings() {
         "⚡ Performance Tuning"
         "🔧 Advanced Options"
         "🐛 Debug Settings"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${hypr_menu[@]}" | \
@@ -66,7 +66,7 @@ configure_monitors() {
         "🔄 Rotation"
         "👁️ View Current Setup"
         "📝 Edit Monitor Config File"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${monitor_options[@]}" | \
@@ -144,7 +144,7 @@ configure_input() {
         "📱 Touchpad Settings"
         "🎮 Gamepad Settings"
         "🌐 Input Method"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${input_options[@]}" | \
@@ -177,7 +177,7 @@ configure_keyboard() {
         "🔁 Repeat Rate"
         "⏱️ Repeat Delay"
         "💡 NumLock on Start"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${kb_options[@]}" | \
@@ -219,7 +219,7 @@ configure_mouse() {
         "🔄 Mouse Acceleration"
         "👆 Left/Right Handed"
         "🎯 Follow Mouse Focus"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${mouse_options[@]}" | \
@@ -251,7 +251,7 @@ configure_touchpad() {
         "👆 Tap to Click"
         "✌️ Two-finger Scroll"
         "👆 Disable While Typing"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${touchpad_options[@]}" | \
@@ -287,7 +287,7 @@ manage_services() {
         "✅ Enable Service"
         "❌ Disable Service"
         "📊 Service Status"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${service_menu[@]}" | \
@@ -357,7 +357,7 @@ manage_environment() {
         "✏️ Edit Environment Variable"
         "🗑️ Remove Environment Variable"
         "📄 Edit Environment File"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${env_menu[@]}" | \
@@ -426,7 +426,7 @@ manage_startup() {
         "✏️ Edit Startup Application"
         "📄 Edit Autostart File"
         "🔄 Test Startup Application"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${startup_menu[@]}" | \
@@ -495,7 +495,7 @@ manage_power() {
         "🔋 Battery Thresholds"
         "🎛️ CPU Governor"
         "❄️ Thermal Management"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${power_menu[@]}" | \
@@ -548,7 +548,7 @@ configure_display_power() {
         "⏰ Set Standby Time"
         "😴 Set Suspend Time"
         "⚫ Set Off Time"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${dpms_options[@]}" | \
@@ -648,7 +648,7 @@ show_advanced_tools() {
         "📦 Package Management"
         "🧹 System Cleanup"
         "📊 Performance Monitor"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${advanced_menu[@]}" | \
@@ -689,7 +689,7 @@ show_package_manager() {
         pkg_managers+=("🔴 Fedora Package Manager")
     fi
 
-    pkg_managers+=("🔙 Back")
+    pkg_managers+=("← Back")
 
     local selected=$(printf '%s\n' "${pkg_managers[@]}" | \
         rofi -dmenu -p "📦 Package Management" \
@@ -729,7 +729,7 @@ system_cleanup() {
         "📋 Clear Clipboard History"
         "🖼️ Remove Broken Wallpaper Links"
         "📊 Clean Journal Logs"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${cleanup_options[@]}" | \

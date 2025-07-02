@@ -57,7 +57,7 @@ manage_rofi() {
         "🎭 Custom Themes"
         "📄 Edit Config File"
         "🔄 Test Configuration"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${rofi_menu[@]}" | \
@@ -97,7 +97,7 @@ configure_rofi_theme() {
         "🌅 Light Theme"
         "🎯 Minimal Theme"
         "🔧 Custom Theme"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${theme_options[@]}" | \
@@ -129,7 +129,7 @@ configure_rofi_dimensions() {
         "📊 Lines: $current_lines"
         "📍 Location"
         "🖼️ Show Icons"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${dimension_options[@]}" | \
@@ -179,7 +179,7 @@ manage_dunst() {
         "🔧 Advanced Settings"
         "📄 Edit Config File"
         "🔄 Restart Dunst"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${dunst_menu[@]}" | \
@@ -219,7 +219,7 @@ configure_dunst_notifications() {
         "📊 Max Notifications"
         "🔤 Font Settings"
         "🖼️ Icon Settings"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${notification_options[@]}" | \
@@ -255,7 +255,7 @@ manage_kitty() {
         "🔧 Performance"
         "📄 Edit Config File"
         "🔄 Reload Configuration"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${kitty_menu[@]}" | \
@@ -291,7 +291,7 @@ configure_kitty_colors() {
         "🌈 Custom Color Scheme"
         "🔄 Reset to Default"
         "👁️ Preview Changes"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${color_options[@]}" | \
@@ -325,7 +325,7 @@ configure_kitty_fonts() {
         "📏 Font Size: $current_size"
         "🔤 Bold Font"
         "🔤 Italic Font"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${font_options[@]}" | \
@@ -366,7 +366,7 @@ manage_eww() {
         "▶️ Start EWW Daemon"
         "⏹️ Stop EWW Daemon"
         "🔄 Restart EWW"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${eww_menu[@]}" | \
@@ -405,7 +405,7 @@ manage_eww_widgets() {
         "⏹️ Close Widget"
         "🔄 Reload Widget"
         "🎯 Toggle Widget"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${widget_options[@]}" | \
@@ -521,12 +521,12 @@ show_component_editor() {
     local main_menu=(
         "📱 Rofi Configuration"
         "🔔 Dunst Notifications"
-        "🐱 Kitty Terminal"
+        "  Kitty Terminal"
         "🎮 EWW Widgets"
         "📊 Component Status"
         "🔄 Apply All Changes"
         "🔧 Advanced Component Tools"
-        "💾 Save & Exit"
+        "💾 Save &amp; Exit"
     )
 
     local selected=$(printf '%s\n' "${main_menu[@]}" | \
@@ -541,7 +541,7 @@ show_component_editor() {
         "🔔 Dunst Notifications")
             manage_dunst
             ;;
-        "🐱 Kitty Terminal")
+        "  Kitty Terminal")
             manage_kitty
             ;;
         "🎮 EWW Widgets")
@@ -556,7 +556,7 @@ show_component_editor() {
         "🔧 Advanced Component Tools")
             show_advanced_component_tools
             ;;
-        "💾 Save & Exit")
+        "💾 Save &amp; Exit")
             apply_all_component_changes
             return 0
             ;;
@@ -613,7 +613,7 @@ show_advanced_component_tools() {
         "🧹 Clean Component Configs"
         "💾 Backup Component Configs"
         "📥 Restore Component Configs"
-        "🔙 Back"
+        "← Back"
     )
 
     local selected=$(printf '%s\n' "${advanced_menu[@]}" | \

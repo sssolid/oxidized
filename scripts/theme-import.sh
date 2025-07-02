@@ -426,11 +426,7 @@ import_from_git() {
 # Function to import from theme gallery
 import_from_gallery() {
     local gallery_themes=(
-        "cyberpunk-neo|Neo Cyberpunk|https://example.com/themes/cyberpunk-neo.json"
-        "medieval-dark|Dark Medieval|https://example.com/themes/medieval-dark.json"
-        "synthwave-80s|80s Synthwave|https://example.com/themes/synthwave-80s.json"
-        "matrix-green|Matrix Green|https://example.com/themes/matrix-green.json"
-        "neon-city|Neon City|https://example.com/themes/neon-city.json"
+        "cyberpunk-neo|Neo Cyberpunk|https://raw.githubusercontent.com/sssolid/oxidized/master/themes/neo-cyberpunk.json"
     )
 
     local menu_items=()
@@ -532,7 +528,7 @@ show_import_manager() {
         "👁️ Preview Theme File"
         "📋 List Imported Themes"
         "🗑️ Remove Imported Theme"
-        "💾 Save & Exit"
+        "💾 Save &amp; Exit"
     )
 
     local selected=$(printf '%s\n' "${main_menu[@]}" | \
@@ -565,7 +561,7 @@ show_import_manager() {
         "🗑️ Remove Imported Theme")
             remove_imported_theme
             ;;
-        "💾 Save & Exit")
+        "💾 Save &amp; Exit")
             return 0
             ;;
         *)
