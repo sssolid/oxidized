@@ -1,0 +1,42 @@
+# 🚀 Generated Autostart - DO NOT EDIT MANUALLY
+# Generated from: ~/.config/hypr-system/templates/hypr-autostart.template
+
+# Essential daemons
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# Authentication agent
+exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Core desktop components
+exec-once = waybar
+exec-once = dunst
+exec-once = swww init
+
+# Background services
+exec-once = pipewire
+exec-once = wireplumber
+exec-once = blueman-applet
+exec-once = nm-applet
+
+# EWW widgets (if available)
+exec-once = [[ -f ~/.config/eww/hotkey-display/eww.yuck ]] && eww daemon
+
+# Wallpaper setup
+exec-once = ~/.config/hypr-system/scripts/wallpaper-cycle.sh init
+
+# Clipboard manager
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+
+# Screen sharing portal
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# ZeroTier VPN (if installed)
+exec-once = [[ -x /usr/bin/zerotier-one ]] && sudo zerotier-one -d
+
+# Custom startup effects
+exec-once = ~/.config/hypr-system/scripts/startup-effects.sh
+
+# Theme initialization
+exec-once = sleep 2 && ~/.config/hypr-system/scripts/theme-startup.sh

@@ -1,0 +1,251 @@
+{
+  "categories": {
+    "applications": {
+      "name": "🚀 Applications",
+      "icon": "🚀",
+      "bindings": {
+        "SUPER, RETURN": {
+          "command": "kitty",
+          "description": "Terminal (Kitty)"
+        },
+        "SUPER, SPACE": {
+          "command": "rofi -show drun",
+          "description": "App Launcher (Rofi)"
+        },
+        "SUPER, E": {
+          "command": "thunar",
+          "description": "File Manager (Thunar)"
+        },
+        "SUPER, Q": {
+          "command": "killactive",
+          "description": "Close Window"
+        },
+        "SUPER, M": {
+          "command": "exit",
+          "description": "Exit Hyprland"
+        }
+      }
+    },
+    "windows": {
+      "name": "🪟 Window Management",
+      "icon": "🪟",
+      "bindings": {
+        "SUPER, left": {
+          "command": "movefocus, l",
+          "description": "Focus Left"
+        },
+        "SUPER, right": {
+          "command": "movefocus, r",
+          "description": "Focus Right"
+        },
+        "SUPER, up": {
+          "command": "movefocus, u",
+          "description": "Focus Up"
+        },
+        "SUPER, down": {
+          "command": "movefocus, d",
+          "description": "Focus Down"
+        },
+        "SUPER SHIFT, left": {
+          "command": "movewindow, l",
+          "description": "Move Window Left"
+        },
+        "SUPER SHIFT, right": {
+          "command": "movewindow, r",
+          "description": "Move Window Right"
+        },
+        "SUPER SHIFT, up": {
+          "command": "movewindow, u",
+          "description": "Move Window Up"
+        },
+        "SUPER SHIFT, down": {
+          "command": "movewindow, d",
+          "description": "Move Window Down"
+        },
+        "SUPER CTRL, left": {
+          "command": "resizeactive, -20 0",
+          "description": "Resize Left"
+        },
+        "SUPER CTRL, right": {
+          "command": "resizeactive, 20 0",
+          "description": "Resize Right"
+        },
+        "SUPER CTRL, up": {
+          "command": "resizeactive, 0 -20",
+          "description": "Resize Up"
+        },
+        "SUPER CTRL, down": {
+          "command": "resizeactive, 0 20",
+          "description": "Resize Down"
+        },
+        "SUPER, F": {
+          "command": "fullscreen, 0",
+          "description": "Fullscreen"
+        },
+        "SUPER, V": {
+          "command": "togglefloating",
+          "description": "Toggle Floating"
+        },
+        "SUPER, J": {
+          "command": "togglesplit",
+          "description": "Toggle Split"
+        }
+      }
+    },
+    "workspaces": {
+      "name": "🏰 Workspaces",
+      "icon": "🏰",
+      "bindings": {
+        "SUPER, 1": { "command": "workspace, 1", "description": "The Keep" },
+        "SUPER, 2": { "command": "workspace, 2", "description": "The Forge" },
+        "SUPER, 3": { "command": "workspace, 3", "description": "The Library" },
+        "SUPER, 4": { "command": "workspace, 4", "description": "The Tavern" },
+        "SUPER, 5": { "command": "workspace, 5", "description": "The Market" },
+        "SUPER, 6": { "command": "workspace, 6", "description": "The Stables" },
+        "SUPER, 7": { "command": "workspace, 7", "description": "The Armory" },
+        "SUPER, 8": { "command": "workspace, 8", "description": "The Tower" },
+        "SUPER, 9": { "command": "workspace, 9", "description": "The Dungeon" },
+        "SUPER, 0": {
+          "command": "workspace, 10",
+          "description": "The Throne Room"
+        },
+        "SUPER SHIFT, 1": {
+          "command": "movetoworkspace, 1",
+          "description": "Move to The Keep"
+        },
+        "SUPER SHIFT, 2": {
+          "command": "movetoworkspace, 2",
+          "description": "Move to The Forge"
+        },
+        "SUPER SHIFT, 3": {
+          "command": "movetoworkspace, 3",
+          "description": "Move to The Library"
+        },
+        "SUPER SHIFT, 4": {
+          "command": "movetoworkspace, 4",
+          "description": "Move to The Tavern"
+        },
+        "SUPER SHIFT, 5": {
+          "command": "movetoworkspace, 5",
+          "description": "Move to The Market"
+        },
+        "SUPER SHIFT, 6": {
+          "command": "movetoworkspace, 6",
+          "description": "Move to The Stables"
+        },
+        "SUPER SHIFT, 7": {
+          "command": "movetoworkspace, 7",
+          "description": "Move to The Armory"
+        },
+        "SUPER SHIFT, 8": {
+          "command": "movetoworkspace, 8",
+          "description": "Move to The Tower"
+        },
+        "SUPER SHIFT, 9": {
+          "command": "movetoworkspace, 9",
+          "description": "Move to The Dungeon"
+        },
+        "SUPER SHIFT, 0": {
+          "command": "movetoworkspace, 10",
+          "description": "Move to The Throne Room"
+        },
+        "SUPER, S": {
+          "command": "togglespecialworkspace, magic",
+          "description": "Special Workspace"
+        }
+      }
+    },
+    "media": {
+      "name": "🎵 Media Controls",
+      "icon": "🎵",
+      "bindings": {
+        ", XF86AudioRaiseVolume": {
+          "command": "exec, ~/.config/hypr-system/scripts/volume-control.sh up",
+          "description": "Volume Up"
+        },
+        ", XF86AudioLowerVolume": {
+          "command": "exec, ~/.config/hypr-system/scripts/volume-control.sh down",
+          "description": "Volume Down"
+        },
+        ", XF86AudioMute": {
+          "command": "exec, ~/.config/hypr-system/scripts/volume-control.sh mute",
+          "description": "Mute Audio"
+        },
+        ", XF86AudioPlay": {
+          "command": "exec, playerctl play-pause",
+          "description": "Play/Pause"
+        },
+        ", XF86AudioNext": {
+          "command": "exec, playerctl next",
+          "description": "Next Track"
+        },
+        ", XF86AudioPrev": {
+          "command": "exec, playerctl previous",
+          "description": "Previous Track"
+        },
+        ", XF86MonBrightnessUp": {
+          "command": "exec, brightnessctl s +5%",
+          "description": "Brightness Up"
+        },
+        ", XF86MonBrightnessDown": {
+          "command": "exec, brightnessctl s 5%-",
+          "description": "Brightness Down"
+        }
+      }
+    },
+    "system": {
+      "name": "🔧 System Controls",
+      "icon": "🔧",
+      "bindings": {
+        "SUPER, T": {
+          "command": "exec, ~/.config/hypr-system/scripts/theme-manager.sh",
+          "description": "Theme Manager"
+        },
+        "SUPER, W": {
+          "command": "exec, ~/.config/hypr-system/scripts/wallpaper-cycle.sh",
+          "description": "Cycle Wallpaper"
+        },
+        "SUPER, H": {
+          "command": "exec, ~/.config/hypr-system/scripts/hotkey-display.sh",
+          "description": "Show Hotkeys"
+        },
+        "SUPER, C": {
+          "command": "exec, ~/.config/hypr-system/scripts/config-editor.sh",
+          "description": "Configuration Editor"
+        },
+        "SUPER, L": {
+          "command": "exec, swaylock",
+          "description": "Lock Screen"
+        },
+        "SUPER SHIFT, S": {
+          "command": "exec, grim -g \"$(slurp)\" - | wl-copy",
+          "description": "Area Screenshot"
+        },
+        "SUPER, Print": {
+          "command": "exec, grim - | wl-copy",
+          "description": "Full Screenshot"
+        },
+        "SUPER, B": {
+          "command": "exec, ~/.config/hypr-system/scripts/bluetooth-control.sh",
+          "description": "Bluetooth Control"
+        }
+      }
+    },
+    "mouse": {
+      "name": "🖱️ Mouse Controls",
+      "icon": "🖱️",
+      "bindings": {
+        "SUPER, mouse:272": {
+          "command": "movewindow",
+          "description": "Move Window",
+          "type": "bindm"
+        },
+        "SUPER, mouse:273": {
+          "command": "resizewindow",
+          "description": "Resize Window",
+          "type": "bindm"
+        }
+      }
+    }
+  }
+}

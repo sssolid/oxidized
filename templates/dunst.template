@@ -1,0 +1,184 @@
+# 🔔 Generated Dunst Configuration - DO NOT EDIT MANUALLY
+# Generated from: ~/.config/hypr-system/templates/dunst.template
+
+[global]
+    # Display
+    monitor = 0
+    follow = mouse
+
+    # Geometry
+    width = (250, 400)
+    height = 200
+    origin = top-right
+    offset = 20x50
+
+    # Appearance
+    corner_radius = ${rounding}
+    frame_width = 2
+    frame_color = "${cyberpunk_neon_cyan}"
+    background = "${primary_bg_secondary}f0"
+    foreground = "${text_primary}"
+
+    # Typography
+    font = ${font_primary} ${font_size_normal}
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+
+    # Icons
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 48
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/apps/
+
+    # Progress bar
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 4
+
+    # History
+    sticky_history = yes
+    history_length = 50
+
+    # Misc
+    dmenu = rofi -dmenu -p dunst:
+    browser = firefox
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+
+    # Legacy
+    force_xinerama = false
+
+    # Mouse
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "${primary_bg_tertiary}e0"
+    foreground = "${text_secondary}"
+    frame_color = "${medieval_castle_stone}"
+    timeout = 5
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "${primary_bg_secondary}f0"
+    foreground = "${text_primary}"
+    frame_color = "${cyberpunk_neon_cyan}"
+    timeout = 8
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "${medieval_battle_crimson}f0"
+    foreground = "${text_primary}"
+    frame_color = "${status_error}"
+    timeout = 0
+    default_icon = dialog-error
+
+# Custom rules for specific applications
+[volume]
+    appname = "Volume Control"
+    background = "${cyberpunk_neon_cyan}30"
+    foreground = "${text_primary}"
+    frame_color = "${cyberpunk_neon_cyan}"
+    timeout = 2
+    format = "<b>%s</b>\n%b"
+
+[brightness]
+    appname = "Brightness"
+    background = "${medieval_royal_gold}30"
+    foreground = "${text_primary}"
+    frame_color = "${medieval_royal_gold}"
+    timeout = 2
+
+[bluetooth]
+    appname = "*Bluetooth*"
+    background = "${cyberpunk_electric_blue}30"
+    foreground = "${text_primary}"
+    frame_color = "${cyberpunk_electric_blue}"
+    timeout = 3
+
+[network]
+    appname = "*Network*"
+    background = "${cyberpunk_neon_green}30"
+    foreground = "${text_primary}"
+    frame_color = "${cyberpunk_neon_green}"
+    timeout = 3
+
+[theme]
+    appname = "*Theme*"
+    background = "${cyberpunk_neon_purple}30"
+    foreground = "${text_primary}"
+    frame_color = "${cyberpunk_neon_purple}"
+    timeout = 3
+
+[wallpaper]
+    appname = "*Wallpaper*"
+    background = "${medieval_royal_gold}30"
+    foreground = "${text_primary}"
+    frame_color = "${medieval_royal_gold}"
+    timeout = 3
+
+[hotkeys]
+    appname = "*Hotkey*"
+    background = "${cyberpunk_neon_cyan}30"
+    foreground = "${text_primary}"
+    frame_color = "${cyberpunk_neon_cyan}"
+    timeout = 5
+
+[config]
+    appname = "*Config*"
+    background = "${cyberpunk_neon_purple}30"
+    foreground = "${text_primary}"
+    frame_color = "${cyberpunk_neon_purple}"
+    timeout = 3
+
+[system]
+    appname = "System"
+    background = "${primary_bg_secondary}f0"
+    foreground = "${text_primary}"
+    frame_color = "${text_accent}"
+    timeout = 5
+
+[error]
+    appname = "*Error*"
+    background = "${medieval_battle_crimson}f0"
+    foreground = "${text_primary}"
+    frame_color = "${status_error}"
+    timeout = 10
+    urgency = critical
+
+[success]
+    appname = "*Success*"
+    background = "${cyberpunk_neon_green}30"
+    foreground = "${text_primary}"
+    frame_color = "${status_success}"
+    timeout = 3
+
+[warning]
+    appname = "*Warning*"
+    background = "${medieval_royal_gold}30"
+    foreground = "${text_primary}"
+    frame_color = "${status_warning}"
+    timeout = 5

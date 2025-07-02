@@ -1,0 +1,88 @@
+;; 🗡️ Dynamic Hotkey Display Interface
+;; EWW Configuration for Cyberpunk Medieval Hotkeys
+
+;; Variables
+(defvar hotkey-visible false)
+
+;; Hotkey data polling
+(defpoll hotkey-data :interval "60s"
+  :initial "{\"categories\": []}"
+  "~/.config/hypr-system/scripts/hotkey-parser.py --json")
+
+;; Main hotkey window
+(defwindow hotkey-display
+  :monitor 0
+  :geometry (geometry :x "50%" :y "50%" :width "80%" :height "80%" :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  :focusable true
+  :visible hotkey-visible
+
+  (box :class "hotkey-container" :orientation "v" :space-evenly false :spacing 20
+    ;; Header
+    (box :class "hotkey-header" :orientation "h" :space-evenly false
+      (label :class "hotkey-title" :text "⚔️ CYBERPUNK MEDIEVAL HOTKEYS 🤖" :halign "start")
+      (box :halign "end"
+        (button :class "close-button"
+                :onclick "eww update hotkey-visible=false"
+                "❌")))
+
+    ;; Search bar
+    (box :class "search-container" :orientation "h"
+      (entry :class "search-entry"
+             :placeholder "Search hotkeys..."
+             :onchange ""))
+
+    ;; Categories
+    (scroll :vscroll true :hscroll false :height 600
+      (box :class "categories-container" :orientation "v" :space-evenly false :spacing 16
+        (for category in {hotkey-data.categories ?: []}
+          (box :class "category" :orientation "v" :space-evenly false :spacing 8
+            ;; Category header
+            (box :class "category-header" :orientation "h" :space-evenly false :spacing 12
+              (label :class "category-icon" :text {category.icon ?: "🔧"})
+              (label :class "category-name" :text {category.name ?: "Unknown"} :halign "start"))
+
+            ;; Keybindings in category
+            (box :class "keybindings" :orientation "v" :space-evenly false :spacing 4
+              (for binding in {category.bindings ?: []}
+                (box :class "keybinding" :orientation "h" :space-evenly false :spacing 16
+                  (label :class "key-combo" :text {binding.key ?: ""} :halign "start")
+                  (label :class "key-description" :text {binding.description ?: ""} :halign "start")
+                  (box :halign "end" :hexpand true
+                    (button :class "copy-button"
+                            :onclick "echo '${binding.key ?: ""}' | wl-copy && notify-send 'Copied' '${binding.key ?: ""}'"
+                            "📋")))))))))
+
+;; Quick launcher for common actions
+(defwindow quick-launcher
+  :monitor 0
+  :geometry (geometry :x "50%" :y "90%" :width "60%" :height "10%" :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :visible false
+
+  (box :class "quick-launcher" :orientation "h" :space-evenly true :spacing 16
+    (button :class "quick-button"
+            :onclick "hyprctl dispatch exec kitty"
+            "🖥️ Terminal")
+    (button :class "quick-button"
+            :onclick "hyprctl dispatch exec 'rofi -show drun'"
+            "🚀 Apps")
+    (button :class "quick-button"
+            :onclick "hyprctl dispatch exec thunar"
+            "📁 Files")
+    (button :class "quick-button"
+            :onclick "~/.config/hypr-system/scripts/config-menu.sh"
+            "⚙️ Config")
+    (button :class "quick-button"
+            :onclick "eww update hotkey-visible=true"
+            "⌨️ Hotkeys")))
+
+;; Helper function to toggle hotkey display
+(defwidget hotkey-toggle []
+  (button :class "hotkey-toggle"
+          :onclick "eww update hotkey-visible=${!hotkey-visible}"
+          :tooltip "Toggle Hotkey Display (Super+H)"
+          "⌨️"))

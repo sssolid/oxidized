@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "name": "Cyberpunk Medieval",
+    "version": "2.0",
+    "author": "System",
+    "description": "Dynamic cyberpunk theme with medieval touches"
+  },
+  "colors": {
+    "primary": {
+      "bg_primary": "#0d1117",
+      "bg_secondary": "#161b22",
+      "bg_tertiary": "#21262d",
+      "bg_overlay": "#0d1117ee"
+    },
+    "cyberpunk": {
+      "neon_cyan": "#00ffff",
+      "neon_pink": "#ff006e",
+      "neon_green": "#39ff14",
+      "neon_purple": "#8a2be2",
+      "electric_blue": "#0080ff"
+    },
+    "medieval": {
+      "royal_gold": "#ffd700",
+      "ancient_bronze": "#cd7f32",
+      "battle_crimson": "#dc143c",
+      "castle_stone": "#696969",
+      "iron_gray": "#36454f"
+    },
+    "text": {
+      "primary": "#e6edf3",
+      "secondary": "#8b949e",
+      "accent": "#58a6ff",
+      "muted": "#6e7681"
+    },
+    "status": {
+      "success": "#39ff14",
+      "warning": "#ffd700",
+      "error": "#dc143c",
+      "info": "#00ffff"
+    },
+    "semantic": {
+      "border_active": "cyberpunk.neon_cyan",
+      "border_inactive": "medieval.castle_stone",
+      "accent_primary": "cyberpunk.neon_cyan",
+      "accent_secondary": "medieval.royal_gold",
+      "shadow": "rgba(0, 0, 0, 0.8)"
+    }
+  },
+  "typography": {
+    "font_primary": "JetBrains Mono Nerd Font",
+    "font_secondary": "Fira Code Nerd Font",
+    "size_small": 11,
+    "size_normal": 13,
+    "size_large": 16,
+    "size_title": 20
+  },
+  "spacing": {
+    "gaps_inner": 8,
+    "gaps_outer": 16,
+    "border_width": 3,
+    "rounding": 12,
+    "margins": {
+      "small": 4,
+      "medium": 8,
+      "large": 16,
+      "xlarge": 24
+    }
+  },
+  "effects": {
+    "blur": {
+      "enabled": true,
+      "size": 8,
+      "passes": 3,
+      "vibrancy": 0.1696
+    },
+    "shadow": {
+      "enabled": true,
+      "range": 20,
+      "render_power": 3
+    },
+    "animations": {
+      "enabled": true,
+      "speed_multiplier": 1.0,
+      "curves": {
+        "cyberpunk": "0.25, 0.46, 0.45, 0.94",
+        "medieval": "0.68, -0.55, 0.265, 1.55",
+        "smooth": "0.23, 1, 0.320, 1",
+        "glow": "0.175, 0.885, 0.320, 1.275"
+      }
+    }
+  },
+  "workspaces": {
+    "names": {
+      "1": "The Keep",
+      "2": "The Forge",
+      "3": "The Library",
+      "4": "The Tavern",
+      "5": "The Market",
+      "6": "The Stables",
+      "7": "The Armory",
+      "8": "The Tower",
+      "9": "The Dungeon",
+      "10": "The Throne Room"
+    },
+    "icons": {
+      "1": "🏰",
+      "2": "⚒️",
+      "3": "📚",
+      "4": "🍺",
+      "5": "🏪",
+      "6": "🐎",
+      "7": "⚔️",
+      "8": "🗼",
+      "9": "🔒",
+      "10": "👑"
+    }
+  },
+  "components": {
+    "waybar": {
+      "height": 42,
+      "margin_top": 8,
+      "margin_sides": 16,
+      "modules_left": ["custom/logo", "hyprland/workspaces", "hyprland/window"],
+      "modules_center": ["clock"],
+      "modules_right": [
+        "custom/zerotier",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "battery",
+        "tray",
+        "custom/config",
+        "custom/power"
+      ]
+    },
+    "rofi": {
+      "width": 600,
+      "lines": 8,
+      "location": "center"
+    }
+  }
+}

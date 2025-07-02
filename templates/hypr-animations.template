@@ -1,0 +1,30 @@
+# ✨ Generated Animations - DO NOT EDIT MANUALLY
+# Generated from: ~/.config/hypr-system/templates/hypr-animations.template
+
+animations {
+    enabled = ${anim_enabled}
+
+    # Bezier curves from theme
+    bezier = cyberpunk, ${curve_cyberpunk}
+    bezier = medieval, ${curve_medieval}
+    bezier = smooth, ${curve_smooth}
+    bezier = glow, ${curve_glow}
+
+    # Window animations with cyberpunk flair
+    animation = windows, 1, 7, cyberpunk
+    animation = windowsOut, 1, 7, cyberpunk, popin 80%
+    animation = border, 1, 10, glow
+    animation = borderangle, 1, 8, glow
+
+    # Fade animations
+    animation = fade, 1, 7, smooth
+    animation = fadeOut, 1, 7, smooth
+
+    # Workspace animations with medieval grandeur
+    animation = workspaces, 1, 6, medieval, slide
+    animation = specialWorkspace, 1, 6, medieval, slidevert
+}
+
+# Window effects
+windowrulev2 = animation popin,class:^(rofi)$
+windowrulev2 = animation slide,class:^(waybar)$

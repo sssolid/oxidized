@@ -1,0 +1,218 @@
+/* 🎨 Generated Waybar CSS - DO NOT EDIT MANUALLY */
+/* Generated from: ~/.config/hypr-system/templates/waybar-css.template */
+
+* {
+    font-family: '${font_primary}', monospace;
+    font-size: ${font_size_normal}px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: linear-gradient(135deg, ${primary_bg_primary}ee, ${primary_bg_secondary}ee);
+    color: ${text_primary};
+    border-radius: ${rounding}px;
+    border: 2px solid ${cyberpunk_neon_cyan};
+    box-shadow: 0 0 20px ${cyberpunk_neon_cyan}44;
+    margin: ${waybar_margin_top}px ${waybar_margin_sides}px 0 ${waybar_margin_sides}px;
+}
+
+/* Left modules */
+.modules-left {
+    margin: 0 ${margin_medium}px;
+}
+
+#custom-logo {
+    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}33, ${medieval_royal_gold}33);
+    border-radius: 50%;
+    padding: ${margin_small}px ${margin_medium}px;
+    margin: ${margin_small}px;
+    color: ${cyberpunk_neon_cyan};
+    border: 1px solid ${cyberpunk_neon_cyan}66;
+    font-size: ${font_size_large}px;
+}
+
+#custom-logo:hover {
+    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}66, ${medieval_royal_gold}66);
+    box-shadow: 0 0 15px ${cyberpunk_neon_cyan}80;
+    transform: scale(1.1);
+}
+
+#workspaces {
+    background: ${primary_bg_secondary}cc;
+    border-radius: ${rounding}px;
+    margin: ${margin_small}px ${margin_medium}px;
+    padding: 0 ${margin_small}px;
+    border: 1px solid ${cyberpunk_neon_cyan}33;
+}
+
+#workspaces button {
+    padding: ${margin_small}px ${margin_medium}px;
+    margin: 2px;
+    border-radius: 6px;
+    background: transparent;
+    color: ${text_secondary};
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: ${font_size_large}px;
+}
+
+#workspaces button:hover {
+    background: ${cyberpunk_neon_cyan}33;
+    color: ${cyberpunk_neon_cyan};
+    box-shadow: 0 0 10px ${cyberpunk_neon_cyan}66;
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}4d, ${medieval_royal_gold}4d);
+    color: ${cyberpunk_neon_cyan};
+    border: 1px solid ${cyberpunk_neon_cyan};
+    box-shadow:
+        0 0 15px ${cyberpunk_neon_cyan}80,
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+#window {
+    background: ${primary_bg_secondary}cc;
+    border-radius: ${rounding}px;
+    padding: ${margin_small}px ${margin_large}px;
+    margin: ${margin_small}px ${margin_medium}px;
+    color: ${text_accent};
+    border: 1px solid ${text_accent}33;
+    max-width: 300px;
+}
+
+/* Center modules */
+.modules-center {
+    margin: 0 ${margin_medium}px;
+}
+
+#clock {
+    background: linear-gradient(135deg, ${medieval_royal_gold}33, ${medieval_ancient_bronze}33);
+    border-radius: ${rounding}px;
+    padding: ${margin_small}px ${margin_large}px;
+    color: ${medieval_royal_gold};
+    border: 1px solid ${medieval_royal_gold}66;
+    font-weight: bold;
+    text-shadow: 0 0 10px ${medieval_royal_gold}80;
+    font-size: ${font_size_normal}px;
+}
+
+#clock:hover {
+    background: linear-gradient(135deg, ${medieval_royal_gold}4d, ${medieval_ancient_bronze}4d);
+    box-shadow: 0 0 15px ${medieval_royal_gold}66;
+}
+
+/* Right modules */
+.modules-right {
+    margin: 0 ${margin_medium}px;
+}
+
+#network, #bluetooth, #pulseaudio, #battery, #custom-zerotier {
+    background: ${primary_bg_secondary}cc;
+    border-radius: ${rounding}px;
+    padding: ${margin_small}px ${margin_medium}px;
+    margin: ${margin_small}px 2px;
+    border: 1px solid ${text_secondary}33;
+    transition: all 0.3s ease;
+    font-size: ${font_size_normal}px;
+}
+
+#network:hover, #bluetooth:hover, #pulseaudio:hover, #battery:hover, #custom-zerotier:hover {
+    border-color: ${cyberpunk_neon_cyan};
+    box-shadow: 0 0 10px ${cyberpunk_neon_cyan}33;
+    transform: translateY(-2px);
+}
+
+#network.disconnected {
+    color: ${status_error};
+    border-color: ${status_error}66;
+}
+
+#bluetooth.connected {
+    color: ${cyberpunk_electric_blue};
+    border-color: ${cyberpunk_electric_blue}33;
+}
+
+#pulseaudio.muted {
+    color: ${status_error};
+    border-color: ${status_error}33;
+}
+
+#battery.warning {
+    color: ${status_warning};
+    border-color: ${status_warning}33;
+}
+
+#battery.critical {
+    color: ${status_error};
+    border-color: ${status_error}33;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.5; }
+}
+
+#tray {
+    background: ${primary_bg_secondary}cc;
+    border-radius: ${rounding}px;
+    padding: ${margin_small}px;
+    margin: ${margin_small}px 2px;
+    border: 1px solid ${text_secondary}33;
+}
+
+#tray > .passive {
+    color: ${text_secondary};
+}
+
+#tray > .active {
+    color: ${text_primary};
+}
+
+#custom-config {
+    background: ${cyberpunk_neon_purple}33;
+    border-radius: 50%;
+    padding: ${margin_small}px;
+    margin: ${margin_small}px;
+    color: ${cyberpunk_neon_purple};
+    border: 1px solid ${cyberpunk_neon_purple}66;
+    min-width: 30px;
+    text-align: center;
+    font-size: ${font_size_normal}px;
+}
+
+#custom-config:hover {
+    background: ${cyberpunk_neon_purple}66;
+    box-shadow: 0 0 15px ${cyberpunk_neon_purple}66;
+    transform: scale(1.1);
+}
+
+#custom-power {
+    background: linear-gradient(135deg, ${medieval_battle_crimson}80, ${status_error}80);
+    border-radius: 50%;
+    padding: ${margin_small}px;
+    margin: ${margin_small}px;
+    color: ${text_primary};
+    border: 2px solid ${medieval_battle_crimson};
+    min-width: 30px;
+    text-align: center;
+    font-size: ${font_size_normal}px;
+    font-weight: bold;
+}
+
+#custom-power:hover {
+    background: linear-gradient(135deg, ${medieval_battle_crimson}, ${status_error});
+    box-shadow: 0 0 20px ${medieval_battle_crimson}80;
+    transform: scale(1.1);
+}
+
+/* Tooltips */
+tooltip {
+    background: ${primary_bg_primary}f0;
+    border: 2px solid ${cyberpunk_neon_cyan};
+    border-radius: ${rounding}px;
+    color: ${text_primary};
+    box-shadow: 0 0 20px ${cyberpunk_neon_cyan}40;
+    font-family: '${font_primary}', monospace;
+}

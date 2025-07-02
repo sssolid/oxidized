@@ -1,0 +1,252 @@
+/* 🎨 Dynamic Hotkey Display Styles */
+/* EWW CSS for Cyberpunk Medieval Theme */
+
+/* Container */
+.hotkey-container {
+    background: linear-gradient(135deg, #0d1117f5, #161b22f5);
+    border: 3px solid #00ffff;
+    border-radius: 16px;
+    padding: 24px;
+    color: #e6edf3;
+    font-family: "JetBrains Mono Nerd Font", monospace;
+    box-shadow:
+        0 0 30px rgba(0, 255, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Header */
+.hotkey-header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #00ffff;
+}
+
+.hotkey-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    margin: 0;
+    padding: 0;
+}
+
+.close-button {
+    background: linear-gradient(135deg, #dc143c, #8b0000);
+    color: white;
+    border: 2px solid #dc143c;
+    border-radius: 50%;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.close-button:hover {
+    background: linear-gradient(135deg, #ff1744, #dc143c);
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.6);
+    transform: scale(1.1);
+}
+
+/* Search */
+.search-container {
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+.search-entry {
+    background: rgba(33, 38, 45, 0.8);
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #e6edf3;
+    font-family: "JetBrains Mono Nerd Font", monospace;
+    font-size: 14px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.search-entry:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    outline: none;
+}
+
+/* Categories */
+.categories-container {
+    padding: 8px;
+}
+
+.category {
+    background: rgba(33, 38, 45, 0.6);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.category:hover {
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.category-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    margin-bottom: 12px;
+}
+
+.category-icon {
+    font-size: 24px;
+    margin-right: 12px;
+    min-width: 32px;
+    text-align: center;
+}
+
+.category-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+/* Keybindings */
+.keybindings {
+    padding: 0;
+}
+
+.keybinding {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(139, 148, 158, 0.2);
+    transition: all 0.3s ease;
+    min-height: 40px;
+    align-items: center;
+}
+
+.keybinding:last-child {
+    border-bottom: none;
+}
+
+.keybinding:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.key-combo {
+    background: linear-gradient(
+        45deg,
+        rgba(0, 255, 255, 0.2),
+        rgba(0, 255, 255, 0.3)
+    );
+    color: #00ffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    min-width: 180px;
+    text-align: center;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+    font-family: "JetBrains Mono Nerd Font", monospace;
+}
+
+.key-description {
+    color: #8b949e;
+    font-size: 14px;
+    margin-left: 16px;
+    flex: 1;
+}
+
+.copy-button {
+    background: rgba(88, 166, 255, 0.2);
+    color: #58a6ff;
+    border: 1px solid rgba(88, 166, 255, 0.4);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    min-width: 32px;
+}
+
+.copy-button:hover {
+    background: rgba(88, 166, 255, 0.4);
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Quick Launcher */
+.quick-launcher {
+    background: linear-gradient(135deg, #0d1117f0, #161b22f0);
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    padding: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.quick-button {
+    background: linear-gradient(
+        45deg,
+        rgba(0, 255, 255, 0.2),
+        rgba(255, 215, 0, 0.2)
+    );
+    color: #e6edf3;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: "JetBrains Mono Nerd Font", monospace;
+}
+
+.quick-button:hover {
+    background: linear-gradient(
+        45deg,
+        rgba(0, 255, 255, 0.4),
+        rgba(255, 215, 0, 0.4)
+    );
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Hotkey Toggle Button */
+.hotkey-toggle {
+    background: linear-gradient(45deg, #8a2be2, #00ffff);
+    color: white;
+    border: 2px solid #8a2be2;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    min-width: 36px;
+    min-height: 36px;
+}
+
+.hotkey-toggle:hover {
+    background: linear-gradient(45deg, #00ffff, #8a2be2);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Scrollbar */
+scrollbar {
+    background: rgba(33, 38, 45, 0.3);
+    border-radius: 6px;
+}
+
+scrollbar slider {
+    background: linear-gradient(180deg, #00ffff, #8a2be2);
+    border-radius: 6px;
+    min-height: 20px;
+}
+
+scrollbar slider:hover {
+    background: linear-gradient(180deg, #00ffff, #ffd700);
+}

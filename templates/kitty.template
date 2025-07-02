@@ -1,0 +1,276 @@
+# 🐱 Generated Kitty Configuration - DO NOT EDIT MANUALLY
+# Generated from: ~/.config/hypr-system/templates/kitty.template
+
+# Font configuration
+font_family      ${font_primary}
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size        ${font_size_normal}
+
+# Font features
+disable_ligatures never
+font_features none
+
+# Cursor
+cursor_shape block
+cursor_beam_thickness 1.5
+cursor_underline_thickness 2.0
+cursor_blink_interval -1
+cursor_stop_blinking_after 15.0
+
+# Scrollback
+scrollback_lines 10000
+scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
+scrollback_pager_history_size 0
+scrollback_fill_enlarged_window no
+wheel_scroll_multiplier 5.0
+wheel_scroll_min_lines 1
+touch_scroll_multiplier 1.0
+
+# Mouse
+mouse_hide_wait 3.0
+url_color ${cyberpunk_neon_cyan}
+url_style curly
+open_url_with default
+url_prefixes file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp ssh
+detect_urls yes
+copy_on_select no
+strip_trailing_spaces never
+select_by_word_characters @-./_~?&=%+#
+click_interval -1.0
+focus_follows_mouse no
+pointer_shape_when_grabbed arrow
+default_pointer_shape beam
+pointer_shape_when_dragging beam
+
+# Performance tuning
+repaint_delay 10
+input_delay 3
+sync_to_monitor yes
+
+# Terminal bell
+enable_audio_bell no
+visual_bell_duration 0.0
+visual_bell_color none
+window_alert_on_bell yes
+bell_on_tab "🔔 "
+command_on_bell none
+bell_path none
+
+# Window layout
+remember_window_size yes
+initial_window_width 640
+initial_window_height 400
+enabled_layouts *
+window_resize_step_cells 2
+window_resize_step_lines 2
+window_border_width 0.5pt
+draw_minimal_borders yes
+window_margin_width 0
+single_window_margin_width -1
+window_padding_width 8
+placement_strategy center
+active_border_color ${cyberpunk_neon_cyan}
+inactive_border_color ${medieval_castle_stone}
+bell_border_color ${status_warning}
+inactive_text_alpha 1.0
+
+# Tab bar
+tab_bar_edge bottom
+tab_bar_margin_width 0.0
+tab_bar_margin_height 0.0 0.0
+tab_bar_style powerline
+tab_bar_align left
+tab_bar_min_tabs 2
+tab_switch_strategy previous
+tab_fade 0.25 0.5 0.75 1
+tab_separator " ┇"
+tab_powerline_style angled
+tab_activity_symbol none
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}"
+active_tab_title_template none
+
+# Color scheme
+foreground ${text_primary}
+background ${primary_bg_primary}
+selection_foreground ${primary_bg_primary}
+selection_background ${cyberpunk_neon_cyan}
+
+# Cursor colors
+cursor ${cyberpunk_neon_cyan}
+cursor_text_color ${primary_bg_primary}
+
+# Tab bar colors
+active_tab_foreground   ${primary_bg_primary}
+active_tab_background   ${cyberpunk_neon_cyan}
+inactive_tab_foreground ${text_secondary}
+inactive_tab_background ${primary_bg_secondary}
+tab_bar_background      ${primary_bg_primary}
+tab_bar_margin_color    none
+
+# Mark colors
+mark1_foreground ${primary_bg_primary}
+mark1_background ${cyberpunk_neon_cyan}
+mark2_foreground ${primary_bg_primary}
+mark2_background ${medieval_royal_gold}
+mark3_foreground ${primary_bg_primary}
+mark3_background ${cyberpunk_neon_purple}
+
+# The 16 terminal colors
+
+# Normal colors
+color0 ${primary_bg_primary}
+color1 ${medieval_battle_crimson}
+color2 ${cyberpunk_neon_green}
+color3 ${medieval_royal_gold}
+color4 ${cyberpunk_electric_blue}
+color5 ${cyberpunk_neon_purple}
+color6 ${cyberpunk_neon_cyan}
+color7 ${text_secondary}
+
+# Bright colors
+color8  ${medieval_iron_gray}
+color9  ${status_error}
+color10 ${status_success}
+color11 ${status_warning}
+color12 ${text_accent}
+color13 ${cyberpunk_neon_pink}
+color14 ${cyberpunk_neon_cyan}
+color15 ${text_primary}
+
+# Extended colors
+color16 ${medieval_ancient_bronze}
+color17 ${medieval_battle_crimson}
+
+# Advanced settings
+shell .
+editor .
+close_on_child_death no
+allow_remote_control no
+update_check_interval 24
+startup_session none
+clipboard_control write-clipboard write-primary read-clipboard-ask read-primary-ask
+clipboard_max_size 64
+allow_hyperlinks yes
+shell_integration enabled
+allow_cloning ask
+clone_source_strategies venv,conda,env_var,path
+
+# OS specific tweaks
+linux_display_server auto
+wayland_titlebar_color system
+macos_titlebar_color system
+macos_option_as_alt no
+macos_hide_from_tasks no
+macos_quit_when_last_window_closed no
+macos_window_resizable yes
+macos_thicken_font 0
+macos_traditional_fullscreen no
+macos_show_window_title_in all
+macos_custom_beam_cursor no
+macos_colorspace srgb
+
+# Keyboard shortcuts
+kitty_mod ctrl+shift
+
+# Clipboard
+map kitty_mod+c copy_to_clipboard
+map kitty_mod+v paste_from_clipboard
+map kitty_mod+s paste_from_selection
+map shift+insert paste_from_selection
+map kitty_mod+o pass_selection_to_program
+
+# Scrolling
+map kitty_mod+up scroll_line_up
+map kitty_mod+k scroll_line_up
+map alt+cmd+page_up scroll_line_up
+map cmd+up scroll_line_up
+map kitty_mod+down scroll_line_down
+map kitty_mod+j scroll_line_down
+map alt+cmd+page_down scroll_line_down
+map cmd+down scroll_line_down
+map kitty_mod+page_up scroll_page_up
+map cmd+page_up scroll_page_up
+map kitty_mod+page_down scroll_page_down
+map cmd+page_down scroll_page_down
+map kitty_mod+home scroll_home
+map cmd+home scroll_home
+map kitty_mod+end scroll_end
+map cmd+end scroll_end
+map kitty_mod+z scroll_to_prompt -1
+map kitty_mod+x scroll_to_prompt 1
+map kitty_mod+h show_scrollback
+map kitty_mod+g show_last_command_output
+
+# Window management
+map kitty_mod+enter new_window
+map cmd+enter new_window
+map kitty_mod+n new_os_window
+map cmd+n new_os_window
+map kitty_mod+w close_window
+map shift+cmd+d close_window
+map kitty_mod+] next_window
+map kitty_mod+[ previous_window
+map kitty_mod+f move_window_forward
+map kitty_mod+b move_window_backward
+map kitty_mod+` move_window_to_top
+map kitty_mod+r start_resizing_window
+map cmd+r start_resizing_window
+map kitty_mod+1 first_window
+map cmd+1 first_window
+map kitty_mod+2 second_window
+map cmd+2 second_window
+map kitty_mod+3 third_window
+map cmd+3 third_window
+map kitty_mod+4 fourth_window
+map cmd+4 fourth_window
+map kitty_mod+5 fifth_window
+map cmd+5 fifth_window
+map kitty_mod+6 sixth_window
+map cmd+6 sixth_window
+map kitty_mod+7 seventh_window
+map cmd+7 seventh_window
+map kitty_mod+8 eighth_window
+map cmd+8 eighth_window
+map kitty_mod+9 ninth_window
+map cmd+9 ninth_window
+map kitty_mod+0 tenth_window
+map cmd+0 tenth_window
+
+# Tab management
+map kitty_mod+right next_tab
+map shift+cmd+] next_tab
+map ctrl+tab next_tab
+map kitty_mod+left previous_tab
+map shift+cmd+[ previous_tab
+map ctrl+shift+tab previous_tab
+map kitty_mod+t new_tab
+map cmd+t new_tab
+map kitty_mod+q close_tab
+map cmd+w close_tab
+map shift+cmd+w close_os_window
+map kitty_mod+. move_tab_forward
+map kitty_mod+, move_tab_backward
+map kitty_mod+alt+t set_tab_title
+map shift+cmd+i set_tab_title
+
+# Layout management
+map kitty_mod+l next_layout
+map kitty_mod+equal change_font_size all +2.0
+map kitty_mod+plus change_font_size all +2.0
+map kitty_mod+kp_add change_font_size all +2.0
+map cmd+plus change_font_size all +2.0
+map cmd+equal change_font_size all +2.0
+map shift+cmd+equal change_font_size all +2.0
+map kitty_mod+minus change_font_size all -2.0
+map kitty_mod+kp_subtract change_font_size all -2.0
+map cmd+minus change_font_size all -2.0
+map shift+cmd+minus change_font_size all -2.0
+map kitty_mod+backspace change_font_size all 0
+map cmd+0 change_font_size all 0
+
+# Custom cyberpunk keybindings
+map f1 launch --type=overlay ~/.config/hypr-system/scripts/hotkey-display.sh
+map f2 launch --type=overlay ~/.config/hypr-system/scripts/theme-manager.sh menu
+map f3 launch --type=overlay ~/.config/hypr-system/scripts/config-menu.sh

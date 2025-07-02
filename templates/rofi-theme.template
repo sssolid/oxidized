@@ -1,0 +1,163 @@
+/* 🎭 Generated Rofi Theme - DO NOT EDIT MANUALLY */
+/* Generated from: ~/.config/hypr-system/templates/rofi-theme.template */
+
+* {
+    bg0: ${primary_bg_overlay};
+    bg1: ${primary_bg_secondary};
+    bg2: ${primary_bg_tertiary};
+    fg0: ${text_primary};
+    fg1: ${text_secondary};
+    accent: ${cyberpunk_neon_cyan};
+    gold: ${medieval_royal_gold};
+    urgent: ${medieval_battle_crimson};
+
+    background-color: transparent;
+    text-color: @fg0;
+
+    font: "${font_primary} ${font_size_large}";
+}
+
+window {
+    background-color: @bg0;
+    border: 3px solid;
+    border-color: @accent;
+    border-radius: ${rounding}px;
+    width: ${rofi_width}px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+mainbox {
+    padding: ${margin_xlarge}px;
+    children: [ inputbar, listview ];
+    spacing: ${margin_xlarge}px;
+}
+
+inputbar {
+    background-color: @bg1;
+    border: 2px solid @accent;
+    border-radius: ${rounding}px;
+    padding: ${margin_large}px;
+    children: [ prompt, entry ];
+    spacing: ${margin_large}px;
+}
+
+prompt {
+    background-color: @accent;
+    color: @bg0;
+    border-radius: 6px;
+    padding: ${margin_small}px ${margin_medium}px;
+    font-weight: bold;
+    font-size: ${font_size_normal}px;
+}
+
+entry {
+    placeholder: "Search the realm...";
+    placeholder-color: @fg1;
+    cursor: text;
+    font-size: ${font_size_normal}px;
+}
+
+listview {
+    background-color: @bg1;
+    border-radius: ${rounding}px;
+    padding: ${margin_medium}px;
+    lines: ${rofi_lines};
+    scrollbar: true;
+}
+
+element {
+    padding: ${margin_medium}px ${margin_large}px;
+    border-radius: 8px;
+    margin: 2px 0;
+    spacing: ${margin_medium}px;
+    children: [ element-icon, element-text ];
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+element normal.normal {
+    background-color: transparent;
+    color: @fg0;
+}
+
+element normal.urgent {
+    background-color: @urgent;
+    color: @fg0;
+}
+
+element normal.active {
+    background-color: @gold;
+    color: @bg0;
+}
+
+element selected.normal {
+    background-color: @accent;
+    color: @bg0;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    color: @fg0;
+    box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+}
+
+element selected.active {
+    background-color: @gold;
+    color: @bg0;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+element alternate.normal {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+element-icon {
+    size: 24px;
+    margin: 0 ${margin_medium}px 0 0;
+}
+
+element-text {
+    vertical-align: 0.5;
+    font-size: ${font_size_normal}px;
+}
+
+element-text selected {
+    color: inherit;
+}
+
+scrollbar {
+    width: 6px;
+    border: 0;
+    handle-color: @accent;
+    handle-width: 6px;
+    padding: 0;
+    margin: 0 2px;
+}
+
+/* Message box (for dmenu mode) */
+message {
+    padding: ${margin_medium}px;
+    border-radius: ${rounding}px;
+    background-color: @bg2;
+    border: 1px solid @accent;
+}
+
+textbox {
+    padding: ${margin_medium}px;
+    text-color: @fg0;
+}
+
+/* Configuration mode styling */
+configuration {
+    display-drun: true;
+    display-run: true;
+    display-window: true;
+    display-ssh: false;
+    display-combi: false;
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    drun-display-format: "{name}";
+    disable-history: false;
+    sidebar-mode: false;
+}

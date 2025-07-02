@@ -1,0 +1,77 @@
+# 🗡️ Generated Hyprland Config - DO NOT EDIT MANUALLY
+# Generated from: ~/.config/hypr-system/templates/hyprland.template
+# Regenerate with: ~/.config/hypr-system/generators/apply-theme.py
+
+# Import modules
+source = ~/.config/hypr/configs/autostart.conf
+source = ~/.config/hypr/configs/environment.conf
+source = ~/.config/hypr/configs/monitors.conf
+source = ~/.config/hypr/configs/bindings.conf
+source = ~/.config/hypr/configs/rules.conf
+source = ~/.config/hypr/configs/animations.conf
+
+# Variables from theme config
+$$cyberpunk_accent = ${cyberpunk_neon_cyan}
+$$medieval_gold = ${medieval_royal_gold}
+$$bg_primary = ${primary_bg_primary}
+$$bg_secondary = ${primary_bg_secondary}
+$$text_primary = ${text_primary}
+$$border_active = ${cyberpunk_neon_cyan}
+$$border_inactive = ${medieval_castle_stone}
+
+general {
+    gaps_in = ${gaps_inner}
+    gaps_out = ${gaps_outer}
+    border_size = ${border_width}
+    col.active_border = $$cyberpunk_accent $$medieval_gold 45deg
+    col.inactive_border = $$border_inactive
+    layout = dwindle
+    resize_on_border = true
+    hover_icon_on_border = true
+}
+
+decoration {
+    rounding = ${rounding}
+    blur {
+        enabled = ${blur_enabled}
+        size = ${blur_size}
+        passes = ${blur_passes}
+        vibrancy = ${blur_vibrancy}
+        ignore_opacity = true
+        new_optimizations = true
+    }
+    drop_shadow = ${shadow_enabled}
+    shadow_range = ${shadow_range}
+    shadow_render_power = ${shadow_render_power}
+    col.shadow = ${semantic_shadow}
+    dim_inactive = true
+    dim_strength = 0.1
+}
+
+input {
+    kb_layout = us
+    follow_mouse = 1
+    sensitivity = 0
+    touchpad {
+        natural_scroll = yes
+        disable_while_typing = true
+        tap-to-click = true
+    }
+}
+
+gestures {
+    workspace_swipe = true
+    workspace_swipe_fingers = 3
+    workspace_swipe_distance = 300
+}
+
+misc {
+    force_default_wallpaper = 0
+    disable_hyprland_logo = true
+    disable_splash_rendering = true
+    mouse_move_enables_dpms = true
+    key_press_enables_dpms = true
+    animate_manual_resizes = true
+    enable_swallow = true
+    swallow_regex = ^(kitty)$
+}
