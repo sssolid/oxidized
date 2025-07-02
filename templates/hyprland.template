@@ -9,6 +9,7 @@ source = ~/.config/hypr/configs/monitors.conf
 source = ~/.config/hypr/configs/bindings.conf
 source = ~/.config/hypr/configs/rules.conf
 source = ~/.config/hypr/configs/animations.conf
+source = ~/.config/hypr/configs/workspaces.conf
 
 # Variables from theme config
 $$cyberpunk_accent = ${cyberpunk_neon_cyan}

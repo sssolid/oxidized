@@ -90,29 +90,51 @@
     }
   },
   "workspaces": {
-    "names": {
-      "1": "The Keep",
-      "2": "The Forge",
-      "3": "The Library",
-      "4": "The Tavern",
-      "5": "The Market",
-      "6": "The Stables",
-      "7": "The Armory",
-      "8": "The Tower",
-      "9": "The Dungeon",
-      "10": "The Throne Room"
+    "mode": "virtual_desktops",
+    "virtual_desktops": {
+      "plugin_config": {
+        "names": "1:play,2:work,3:mail",
+        "cycleworkspaces": 0,
+        "rememberlayout": "none",
+        "notifyinit": 0,
+        "verbose_logging": 0
+      },
+      "names": {
+        "1": "Play",
+        "2": "Work",
+        "3": "Mail"
+      },
+      "icons": {
+        "1": "🎮",
+        "2": "💼",
+        "3": "📧"
+      }
     },
-    "icons": {
-      "1": "🏰",
-      "2": "⚒️",
-      "3": "📚",
-      "4": "🍺",
-      "5": "🏪",
-      "6": "🐎",
-      "7": "⚔️",
-      "8": "🗼",
-      "9": "🔒",
-      "10": "👑"
+    "per_monitor": {
+      "names": {
+        "1": "Main",
+        "2": "Work",
+        "3": "Code",
+        "4": "Media",
+        "5": "Extra",
+        "6": "Secondary",
+        "7": "Design",
+        "8": "Chat",
+        "9": "Games",
+        "10": "Misc"
+      },
+      "icons": {
+        "1": "🏠",
+        "2": "💼",
+        "3": "💻",
+        "4": "🎬",
+        "5": "➕",
+        "6": "📺",
+        "7": "🎨",
+        "8": "💬",
+        "9": "🎮",
+        "10": "📂"
+      }
     }
   },
   "components": {

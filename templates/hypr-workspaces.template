@@ -1,0 +1,10 @@
+# 🗡️ Generated Workspace Configuration - DO NOT EDIT MANUALLY
+# Generated from: ~/.config/hypr-system/templates/hypr-workspaces.template
+
+${workspace_plugin_config}
+
+# Workspace keybindings
+${workspace_keybindings}
+
+# Monitor assignments (for per-monitor mode)
+${monitor_assignments}

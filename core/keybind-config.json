@@ -93,9 +93,13 @@
       }
     },
     "workspaces": {
-      "name": "🏰 Workspaces",
-      "icon": "🏰",
+      "name": "Workspace Management",
+      "icon": "🗡️",
       "bindings": {
+        "SUPER CTRL, W": {
+          "command": "exec, python3 ~/.config/hypr-system/generators/apply-theme.py --switch-workspace-mode",
+          "description": "Quick switch workspace mode"
+        },
         "SUPER, 1": { "command": "workspace, 1", "description": "The Keep" },
         "SUPER, 2": { "command": "workspace, 2", "description": "The Forge" },
         "SUPER, 3": { "command": "workspace, 3", "description": "The Library" },

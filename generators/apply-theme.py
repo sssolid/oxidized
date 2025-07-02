@@ -286,6 +286,114 @@ class ThemeGenerator:
         with open(waybar_dir / "config.jsonc", 'w') as f:
             json.dump(config, f, indent=2)
 
+    def get_workspace_variables(self):
+        """Get workspace-specific template variables"""
+        workspace_config = self.theme_config.get('workspaces', {})
+        mode = workspace_config.get('mode', 'virtual_desktops')
+
+        # Generate plugin configuration
+        plugin_config = ""
+        if mode == 'virtual_desktops':
+            vdesk_config = workspace_config.get('virtual_desktops', {}).get('plugin_config', {})
+            if vdesk_config:
+                plugin_config = "plugin {\n  virtual-desktops {\n"
+                for key, value in vdesk_config.items():
+                    plugin_config += f"    {key} = {value}\n"
+                plugin_config += "  }\n}\n"
+
+        # Generate keybindings
+        keybindings = ""
+        if mode == 'virtual_desktops':
+            keybindings += "# Virtual desktop keybindings\n"
+            keybindings += "bind = $mainMod, bracketleft, backcyclevdesks\n"
+            keybindings += "bind = $mainMod, bracketright, cyclevdesks\n"
+            keybindings += "bind = $mainMod, 1, vdesk, 1\n"
+            keybindings += "bind = $mainMod, 2, vdesk, 2\n"
+            keybindings += "bind = $mainMod, 3, vdesk, 3\n"
+            keybindings += "bind = $mainMod SHIFT, 1, movetodesksilent, 1\n"
+            keybindings += "bind = $mainMod SHIFT, 2, movetodesksilent, 2\n"
+            keybindings += "bind = $mainMod SHIFT, 3, movetodesksilent, 3\n"
+        else:
+            keybindings += "# Per-monitor workspace keybindings\n"
+            for i in range(1, 11):
+                keybindings += f"bind = $mainMod, {i}, workspace, {i}\n"
+            for i in range(1, 11):
+                keybindings += f"bind = $mainMod SHIFT, {i}, movetoworkspace, {i}\n"
+            keybindings += "bind = $mainMod, bracketright, workspace, m+1\n"
+            keybindings += "bind = $mainMod, bracketleft, workspace, m-1\n"
+
+        # Generate monitor assignments (for per-monitor mode)
+        monitor_assignments = ""
+        if mode == 'per_monitor':
+            try:
+                import subprocess
+                result = subprocess.run(['hyprctl', 'monitors', '-j'],
+                                        capture_output=True, text=True)
+                if result.returncode == 0:
+                    monitors_data = json.loads(result.stdout)
+                    if len(monitors_data) >= 2:
+                        monitor_assignments += "# Monitor workspace assignments\n"
+                        # Primary monitor: workspaces 1-5
+                        for i in range(1, 6):
+                            monitor_assignments += f"workspace = {i}, monitor:{monitors_data[0]['name']}\n"
+                        # Secondary monitor: workspaces 6-10
+                        for i in range(6, 11):
+                            monitor_assignments += f"workspace = {i}, monitor:{monitors_data[1]['name']}\n"
+            except:
+                pass
+
+        return {
+            'workspace_plugin_config': plugin_config,
+            'workspace_keybindings': keybindings,
+            'monitor_assignments': monitor_assignments
+        }
+
+    def generate_workspaces(self):
+        """Generate workspace configuration"""
+        print("🗡️ Generating workspace configuration...")
+
+        workspace_vars = self.get_workspace_variables()
+
+        success = self.generate_from_template(
+            'hypr-workspaces',
+            self.output_dir / "hypr" / "configs" / "workspaces.conf",
+            workspace_vars
+        )
+
+        if success:
+            print("✅ Workspace configuration generated")
+        else:
+            print("❌ Failed to generate workspace configuration")
+
+    def switch_workspace_mode(self):
+        """Switch between virtual_desktops and per_monitor modes"""
+        current_mode = self.theme_config.get('workspaces', {}).get('mode', 'virtual_desktops')
+        new_mode = 'per_monitor' if current_mode == 'virtual_desktops' else 'virtual_desktops'
+
+        # Update theme config
+        if 'workspaces' not in self.theme_config:
+            self.theme_config['workspaces'] = {}
+        self.theme_config['workspaces']['mode'] = new_mode
+
+        # Save updated config
+        with open(self.config_dir / "core" / "theme-config.json", 'w') as f:
+            json.dump(self.theme_config, f, indent=2)
+
+        print(f"🔄 Switched workspace mode to: {new_mode}")
+
+        # Regenerate workspace config
+        self.generate_workspaces()
+
+        # Reload Hyprland
+        try:
+            subprocess.run(['hyprctl', 'reload'], check=True)
+            subprocess.run(['notify-send', '🗡️ Workspace Mode Changed',
+                            f'Switched to {new_mode.replace("_", " ").title()}', '-t', '3000'])
+        except:
+            print("⚠️ Could not reload Hyprland")
+
+        return new_mode
+
     def generate_all(self):
         """Generate all configurations"""
         print("🚀 Generating all configurations from templates...")
@@ -315,6 +423,7 @@ class ThemeGenerator:
         # Generate keybindings and waybar config (these are special cases)
         self.generate_keybindings()
         self.generate_waybar_config()
+        self.generate_workspaces()
 
         print(f"✅ Generated {success_count}/{len(configs)} configurations successfully!")
 
@@ -344,20 +453,23 @@ class ThemeGenerator:
 
 def main():
     """Main function"""
-    if len(sys.argv) > 1 and sys.argv[1] == "--help":
-        print("""
+    generator = ThemeGenerator()
+
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "--help":
+            print("""
 🎨 Master Theme Generator
 
 Usage:
-  python apply-theme.py           Generate all configurations
-  python apply-theme.py --help    Show this help
-
-This script generates all component configurations from the central
-theme-config.json and keybind-config.json files using templates.
+  python apply-theme.py                      Generate all configurations
+  python apply-theme.py --switch-workspace-mode    Switch workspace mode
+  python apply-theme.py --help              Show this help
 """)
-        return
+            return
+        elif sys.argv[1] == "--switch-workspace-mode":
+            generator.switch_workspace_mode()
+            return
 
-    generator = ThemeGenerator()
     generator.generate_all()
 
 if __name__ == "__main__":
