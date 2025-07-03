@@ -13,7 +13,8 @@ env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
 
 # GTK
 env = GDK_BACKEND,wayland,x11
-env = GTK_THEME,Adwaita-dark
+env = ADW_DISABLE_PORTAL,1
+# env = GTK_THEME,Adwaita-dark
 
 # Cursor
 env = XCURSOR_SIZE,24

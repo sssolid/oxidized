@@ -303,6 +303,7 @@ class ThemeGenerator:
             ("hypr-monitors", self.output_dir / "hypr" / "configs" / "monitors.conf"),
             ("hypr-autostart", self.output_dir / "hypr" / "configs" / "autostart.conf"),
             ("waybar-css", self.output_dir / "waybar" / "style.css"),
+            ("rofi-rasi", self.output_dir / "rofi" / "config.rasi"),
             ("rofi-theme", self.output_dir / "rofi" / "themes" / "cyberpunk-medieval.rasi"),
             ("dunst", self.output_dir / "dunst" / "dunstrc"),
             ("kitty", self.output_dir / "kitty" / "kitty.conf"),
