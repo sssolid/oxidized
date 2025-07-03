@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-    background: linear-gradient(135deg, ${primary_bg_primary}ee, ${primary_bg_secondary}ee);
+    background: linear-gradient(135deg, ${primary_bg_primary}ee 0%, ${primary_bg_secondary}ee 100%);
     color: ${text_primary};
     border-radius: ${rounding}px;
     border: 2px solid ${cyberpunk_neon_cyan};

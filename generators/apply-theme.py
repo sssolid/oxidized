@@ -73,12 +73,14 @@ class ThemeGenerator:
 
         # Add theme settings
         vars_dict.update({
-            'font_primary': theme['typography']['font_primary'],
+            'font_primary': theme.get('typography', {}).get('font_primary', 'JetBrains Mono Nerd Font'),
             'font_secondary': theme['typography']['font_secondary'],
             'font_size_small': theme['typography']['size_small'],
             'font_size_normal': theme['typography']['size_normal'],
             'font_size_large': theme['typography']['size_large'],
             'font_size_title': theme['typography']['size_title'],
+
+            'primary_bg_overlay': theme['colors']['primary'].get('bg_overlay', theme['colors']['primary']['bg_secondary']),
 
             'gaps_inner': theme['spacing']['gaps_inner'],
             'gaps_outer': theme['spacing']['gaps_outer'],
@@ -202,7 +204,7 @@ class ThemeGenerator:
             },
             "hyprland/workspaces": {
                 "format": "{icon}",
-                "format-icons": workspaces['icons'],
+                "format-icons": workspaces.get('icons', {"1": "1", "2": "2", "3": "3"}),
                 "persistent_workspaces": {str(i): [] for i in range(1, 6)},
                 "on-click": "activate"
             },

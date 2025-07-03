@@ -5,7 +5,13 @@
 # Syntax: monitor=name,resolution@refreshrate,position,scale
 
 # Auto-detect and configure monitors
-monitor=,preferred,auto,1
+# monitor=,preferred,auto,1
+
+# Custom monitor configuration (solid)
+monitor=desc:AU Optronics 0xFDA4,2560x1600@120,7688x0,1
+monitor=desc:Acer Technologies EK271U E 1440075FF3W01,2560x1440@99.95,0x0,1
+monitor=desc:Acer Technologies EK271U E 14370DA8B3W01,2560x1440@99.95,2560x0,1
+monitor=desc:Acer Technologies EK271U E 1440075EB3W01,2560x1440@99.95,5120x0,1
 
 # Common monitor configurations (uncomment as needed)
 

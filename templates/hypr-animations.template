@@ -26,5 +26,5 @@ animations {
 }
 
 # Window effects
-windowrulev2 = animation popin,class:^(rofi)$
-windowrulev2 = animation slide,class:^(waybar)$
+windowrulev2 = animation popin,class:^(rofi)$$
+windowrulev2 = animation slide,class:^(waybar)$$
