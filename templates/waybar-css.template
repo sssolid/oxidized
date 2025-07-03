@@ -1,5 +1,6 @@
 /* 🎨 Generated Waybar CSS - DO NOT EDIT MANUALLY */
 /* Generated from: ~/.config/hypr-system/templates/waybar-css.template */
+/* Only uses GTK3-supported CSS properties */
 
 * {
     font-family: '${font_primary}', monospace;
@@ -8,12 +9,13 @@
 }
 
 window#waybar {
-    background: linear-gradient(135deg, ${primary_bg_primary}ee 0%, ${primary_bg_secondary}ee 100%);
+    background: linear-gradient(135deg, ${primary_bg_primary} 0%, ${primary_bg_secondary} 100%);
     color: ${text_primary};
     border-radius: ${rounding}px;
     border: 2px solid ${cyberpunk_neon_cyan};
-    box-shadow: 0 0 20px ${cyberpunk_neon_cyan}44;
+    box-shadow: 0 0 20px ${cyberpunk_neon_cyan};
     margin: ${waybar_margin_top}px ${waybar_margin_sides}px 0 ${waybar_margin_sides}px;
+    opacity: 0.93;
 }
 
 /* Left modules */
@@ -22,27 +24,28 @@ window#waybar {
 }
 
 #custom-logo {
-    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}33, ${medieval_royal_gold}33);
+    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}, ${medieval_royal_gold});
     border-radius: 50%;
     padding: ${margin_small}px ${margin_medium}px;
     margin: ${margin_small}px;
     color: ${cyberpunk_neon_cyan};
-    border: 1px solid ${cyberpunk_neon_cyan}66;
+    border: 1px solid ${cyberpunk_neon_cyan};
     font-size: ${font_size_large}px;
+    opacity: 0.7;
 }
 
 #custom-logo:hover {
-    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}66, ${medieval_royal_gold}66);
-    box-shadow: 0 0 15px ${cyberpunk_neon_cyan}80;
-    transform: scale(1.1);
+    opacity: 1.0;
+    box-shadow: 0 0 15px ${cyberpunk_neon_cyan};
 }
 
 #workspaces {
-    background: ${primary_bg_secondary}cc;
+    background: ${primary_bg_secondary};
     border-radius: ${rounding}px;
     margin: ${margin_small}px ${margin_medium}px;
     padding: 0 ${margin_small}px;
-    border: 1px solid ${cyberpunk_neon_cyan}33;
+    border: 1px solid ${cyberpunk_neon_cyan};
+    opacity: 0.8;
 }
 
 #workspaces button {
@@ -57,28 +60,29 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    background: ${cyberpunk_neon_cyan}33;
-    color: ${cyberpunk_neon_cyan};
-    box-shadow: 0 0 10px ${cyberpunk_neon_cyan}66;
+    background: ${cyberpunk_neon_cyan};
+    color: ${primary_bg_primary};
+    box-shadow: 0 0 10px ${cyberpunk_neon_cyan};
+    opacity: 0.7;
 }
 
 #workspaces button.active {
-    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}4d, ${medieval_royal_gold}4d);
-    color: ${cyberpunk_neon_cyan};
+    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}, ${medieval_royal_gold});
+    color: ${primary_bg_primary};
     border: 1px solid ${cyberpunk_neon_cyan};
-    box-shadow:
-        0 0 15px ${cyberpunk_neon_cyan}80,
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px ${cyberpunk_neon_cyan};
+    opacity: 0.9;
 }
 
 #window {
-    background: ${primary_bg_secondary}cc;
+    background: ${primary_bg_secondary};
     border-radius: ${rounding}px;
     padding: ${margin_small}px ${margin_large}px;
     margin: ${margin_small}px ${margin_medium}px;
     color: ${text_accent};
-    border: 1px solid ${text_accent}33;
-    max-width: 300px;
+    border: 1px solid ${text_accent};
+    opacity: 0.8;
+    min-width: 100px;
 }
 
 /* Center modules */
@@ -87,19 +91,20 @@ window#waybar {
 }
 
 #clock {
-    background: linear-gradient(135deg, ${medieval_royal_gold}33, ${medieval_ancient_bronze}33);
+    background: linear-gradient(135deg, ${medieval_royal_gold}, ${medieval_ancient_bronze});
     border-radius: ${rounding}px;
     padding: ${margin_small}px ${margin_large}px;
-    color: ${medieval_royal_gold};
-    border: 1px solid ${medieval_royal_gold}66;
+    color: ${primary_bg_primary};
+    border: 1px solid ${medieval_royal_gold};
     font-weight: bold;
-    text-shadow: 0 0 10px ${medieval_royal_gold}80;
     font-size: ${font_size_normal}px;
+    opacity: 0.9;
+    min-width: 120px;
 }
 
 #clock:hover {
-    background: linear-gradient(135deg, ${medieval_royal_gold}4d, ${medieval_ancient_bronze}4d);
-    box-shadow: 0 0 15px ${medieval_royal_gold}66;
+    opacity: 1.0;
+    box-shadow: 0 0 15px ${medieval_royal_gold};
 }
 
 /* Right modules */
@@ -108,58 +113,63 @@ window#waybar {
 }
 
 #network, #bluetooth, #pulseaudio, #battery, #custom-zerotier {
-    background: ${primary_bg_secondary}cc;
+    background: ${primary_bg_secondary};
     border-radius: ${rounding}px;
     padding: ${margin_small}px ${margin_medium}px;
     margin: ${margin_small}px 2px;
-    border: 1px solid ${text_secondary}33;
+    border: 1px solid ${text_secondary};
     transition: all 0.3s ease;
     font-size: ${font_size_normal}px;
+    opacity: 0.8;
+    min-width: 30px;
 }
 
 #network:hover, #bluetooth:hover, #pulseaudio:hover, #battery:hover, #custom-zerotier:hover {
     border-color: ${cyberpunk_neon_cyan};
-    box-shadow: 0 0 10px ${cyberpunk_neon_cyan}33;
-    transform: translateY(-2px);
+    box-shadow: 0 0 10px ${cyberpunk_neon_cyan};
+    opacity: 1.0;
 }
 
 #network.disconnected {
     color: ${status_error};
-    border-color: ${status_error}66;
+    border-color: ${status_error};
 }
 
 #bluetooth.connected {
     color: ${cyberpunk_electric_blue};
-    border-color: ${cyberpunk_electric_blue}33;
+    border-color: ${cyberpunk_electric_blue};
 }
 
 #pulseaudio.muted {
     color: ${status_error};
-    border-color: ${status_error}33;
+    border-color: ${status_error};
 }
 
 #battery.warning {
     color: ${status_warning};
-    border-color: ${status_warning}33;
+    border-color: ${status_warning};
 }
 
 #battery.critical {
     color: ${status_error};
-    border-color: ${status_error}33;
+    border-color: ${status_error};
     animation: blink 1s linear infinite;
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0.5; }
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    51% { opacity: 0.5; }
+    100% { opacity: 0.5; }
 }
 
 #tray {
-    background: ${primary_bg_secondary}cc;
+    background: ${primary_bg_secondary};
     border-radius: ${rounding}px;
     padding: ${margin_small}px;
     margin: ${margin_small}px 2px;
-    border: 1px solid ${text_secondary}33;
+    border: 1px solid ${text_secondary};
+    opacity: 0.8;
 }
 
 #tray > .passive {
@@ -171,48 +181,47 @@ window#waybar {
 }
 
 #custom-config {
-    background: ${cyberpunk_neon_purple}33;
+    background: ${cyberpunk_neon_purple};
     border-radius: 50%;
     padding: ${margin_small}px;
     margin: ${margin_small}px;
-    color: ${cyberpunk_neon_purple};
-    border: 1px solid ${cyberpunk_neon_purple}66;
+    color: ${text_primary};
+    border: 1px solid ${cyberpunk_neon_purple};
     min-width: 30px;
-    text-align: center;
     font-size: ${font_size_normal}px;
+    opacity: 0.7;
 }
 
 #custom-config:hover {
-    background: ${cyberpunk_neon_purple}66;
-    box-shadow: 0 0 15px ${cyberpunk_neon_purple}66;
-    transform: scale(1.1);
+    opacity: 1.0;
+    box-shadow: 0 0 15px ${cyberpunk_neon_purple};
 }
 
 #custom-power {
-    background: linear-gradient(135deg, ${medieval_battle_crimson}80, ${status_error}80);
+    background: linear-gradient(135deg, ${medieval_battle_crimson}, ${status_error});
     border-radius: 50%;
     padding: ${margin_small}px;
     margin: ${margin_small}px;
     color: ${text_primary};
     border: 2px solid ${medieval_battle_crimson};
     min-width: 30px;
-    text-align: center;
     font-size: ${font_size_normal}px;
     font-weight: bold;
+    opacity: 0.9;
 }
 
 #custom-power:hover {
-    background: linear-gradient(135deg, ${medieval_battle_crimson}, ${status_error});
-    box-shadow: 0 0 20px ${medieval_battle_crimson}80;
-    transform: scale(1.1);
+    opacity: 1.0;
+    box-shadow: 0 0 20px ${medieval_battle_crimson};
 }
 
 /* Tooltips */
 tooltip {
-    background: ${primary_bg_primary}f0;
+    background: ${primary_bg_primary};
     border: 2px solid ${cyberpunk_neon_cyan};
     border-radius: ${rounding}px;
     color: ${text_primary};
-    box-shadow: 0 0 20px ${cyberpunk_neon_cyan}40;
+    box-shadow: 0 0 20px ${cyberpunk_neon_cyan};
     font-family: '${font_primary}', monospace;
+    opacity: 0.95;
 }

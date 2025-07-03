@@ -71,6 +71,12 @@ class ThemeGenerator:
             for name, value in color_group.items():
                 vars_dict[f"{category}_{name}"] = value
 
+        # MISSING CODE: Process semantic colors and resolve their references
+        if 'semantic' in theme['colors']:
+            for name, color_ref in theme['colors']['semantic'].items():
+                resolved_color = self.resolve_color(color_ref)
+                vars_dict[name] = resolved_color
+
         # Add theme settings
         vars_dict.update({
             'font_primary': theme.get('typography', {}).get('font_primary', 'JetBrains Mono Nerd Font'),
@@ -176,118 +182,6 @@ class ThemeGenerator:
         with open(output_path, 'w') as f:
             f.write(bindings_content)
 
-    def generate_waybar_config(self):
-        """Generate Waybar JSON configuration"""
-        print("📊 Generating Waybar config...")
-
-        waybar_config = self.theme_config['components']['waybar']
-        workspaces = self.theme_config['workspaces']
-
-        # Build the configuration
-        config = {
-            "layer": "top",
-            "position": "top",
-            "height": waybar_config['height'],
-            "spacing": self.theme_config['spacing']['margins']['medium'],
-            "margin-top": waybar_config['margin_top'],
-            "margin-left": waybar_config['margin_sides'],
-            "margin-right": waybar_config['margin_sides'],
-            "modules-left": waybar_config['modules_left'],
-            "modules-center": waybar_config['modules_center'],
-            "modules-right": waybar_config['modules_right'],
-
-            # Module configurations
-            "custom/logo": {
-                "format": "⚔️",
-                "tooltip": False,
-                "on-click": "rofi -show drun"
-            },
-            "hyprland/workspaces": {
-                "format": "{icon}",
-                "format-icons": workspaces.get('icons', {"1": "1", "2": "2", "3": "3"}),
-                "persistent_workspaces": {str(i): [] for i in range(1, 6)},
-                "on-click": "activate"
-            },
-            "hyprland/window": {
-                "format": "{}",
-                "max-length": 50,
-                "tooltip": False
-            },
-            "clock": {
-                "format": "{:%H:%M 🕐 %a %d %b}",
-                "format-alt": "{:%Y-%m-%d %H:%M:%S}",
-                "tooltip-format": "<big>{:%Y %B}</big>\\n<tt><small>{calendar}</small></tt>"
-            },
-            "network": {
-                "interface": "wlp*",
-                "format-wifi": "📶 {signalStrength}%",
-                "format-ethernet": "🌐 {ifname}",
-                "format-disconnected": "❌ Disconnected",
-                "tooltip-format": "{ifname}: {ipaddr}/{cidr}\\nGateway: {gwaddr}\\nStrength: {signalStrength}%",
-                "on-click": "nm-connection-editor"
-            },
-            "bluetooth": {
-                "format": "🔵 {status}",
-                "format-connected": "🔵 {device_alias}",
-                "format-connected-battery": "🔵 {device_alias} {device_battery_percentage}%",
-                "on-click": "~/.config/hypr-system/scripts/bluetooth-control.sh"
-            },
-            "pulseaudio": {
-                "format": "{icon} {volume}%",
-                "format-bluetooth": "{icon} {volume}% 🔵",
-                "format-bluetooth-muted": "🔇 🔵",
-                "format-muted": "🔇",
-                "format-icons": {
-                    "headphone": "🎧",
-                    "hands-free": "🎙️",
-                    "headset": "🎧",
-                    "phone": "📱",
-                    "portable": "📱",
-                    "car": "🚗",
-                    "default": ["🔈", "🔉", "🔊"]
-                },
-                "on-click": "pavucontrol",
-                "on-click-right": "~/.config/hypr-system/scripts/volume-control.sh mute"
-            },
-            "battery": {
-                "states": {
-                    "warning": 30,
-                    "critical": 15
-                },
-                "format": "{icon} {capacity}%",
-                "format-charging": "⚡ {capacity}%",
-                "format-plugged": "🔌 {capacity}%",
-                "format-alt": "{icon} {time}",
-                "format-icons": ["🪫", "🔋", "🔋", "🔋", "🔋"]
-            },
-            "custom/zerotier": {
-                "format": "🌐 {}",
-                "exec": "~/.config/hypr-system/scripts/zerotier-status.sh",
-                "interval": 30,
-                "tooltip": True,
-                "on-click": "~/.config/hypr-system/scripts/zerotier-control.sh"
-            },
-            "tray": {
-                "spacing": 10
-            },
-            "custom/config": {
-                "format": "⚙️",
-                "tooltip": "Configuration Menu",
-                "on-click": "~/.config/hypr-system/scripts/config-menu.sh"
-            },
-            "custom/power": {
-                "format": "⚡",
-                "tooltip": False,
-                "on-click": "~/.config/hypr-system/scripts/power-menu.sh"
-            }
-        }
-
-        # Write config
-        waybar_dir = self.output_dir / "waybar"
-        waybar_dir.mkdir(exist_ok=True)
-        with open(waybar_dir / "config.jsonc", 'w') as f:
-            json.dump(config, f, indent=2)
-
     def get_workspace_variables(self):
         """Get workspace-specific template variables"""
         workspace_config = self.theme_config.get('workspaces', {})
@@ -307,22 +201,22 @@ class ThemeGenerator:
         keybindings = ""
         if mode == 'virtual_desktops':
             keybindings += "# Virtual desktop keybindings\n"
-            keybindings += "bind = $mainMod, bracketleft, backcyclevdesks\n"
-            keybindings += "bind = $mainMod, bracketright, cyclevdesks\n"
-            keybindings += "bind = $mainMod, 1, vdesk, 1\n"
-            keybindings += "bind = $mainMod, 2, vdesk, 2\n"
-            keybindings += "bind = $mainMod, 3, vdesk, 3\n"
-            keybindings += "bind = $mainMod SHIFT, 1, movetodesksilent, 1\n"
-            keybindings += "bind = $mainMod SHIFT, 2, movetodesksilent, 2\n"
-            keybindings += "bind = $mainMod SHIFT, 3, movetodesksilent, 3\n"
+            keybindings += "bind = SUPER, bracketleft, backcyclevdesks\n"
+            keybindings += "bind = SUPER, bracketright, cyclevdesks\n"
+            keybindings += "bind = SUPER, 1, vdesk, 1\n"
+            keybindings += "bind = SUPER, 2, vdesk, 2\n"
+            keybindings += "bind = SUPER, 3, vdesk, 3\n"
+            keybindings += "bind = SUPER SHIFT, 1, movetodesksilent, 1\n"
+            keybindings += "bind = SUPER SHIFT, 2, movetodesksilent, 2\n"
+            keybindings += "bind = SUPER SHIFT, 3, movetodesksilent, 3\n"
         else:
             keybindings += "# Per-monitor workspace keybindings\n"
             for i in range(1, 11):
-                keybindings += f"bind = $mainMod, {i}, workspace, {i}\n"
+                keybindings += f"bind = SUPER, {i}, workspace, {i}\n"
             for i in range(1, 11):
-                keybindings += f"bind = $mainMod SHIFT, {i}, movetoworkspace, {i}\n"
-            keybindings += "bind = $mainMod, bracketright, workspace, m+1\n"
-            keybindings += "bind = $mainMod, bracketleft, workspace, m-1\n"
+                keybindings += f"bind = SUPER SHIFT, {i}, movetoworkspace, {i}\n"
+            keybindings += "bind = SUPER, bracketright, workspace, m+1\n"
+            keybindings += "bind = SUPER, bracketleft, workspace, m-1\n"
 
         # Generate monitor assignments (for per-monitor mode)
         monitor_assignments = ""
@@ -424,7 +318,6 @@ class ThemeGenerator:
 
         # Generate keybindings and waybar config (these are special cases)
         self.generate_keybindings()
-        self.generate_waybar_config()
         self.generate_workspaces()
 
         print(f"✅ Generated {success_count}/{len(configs)} configurations successfully!")

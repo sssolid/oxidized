@@ -1,0 +1,137 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": ${waybar_height},
+  "spacing": ${margin_medium},
+  "margin-top": ${waybar_margin_top},
+  "margin-left": ${waybar_margin_sides},
+  "margin-right": ${waybar_margin_sides},
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/zerotier",
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "battery",
+    "tray",
+    "custom/config",
+    "custom/power"
+  ],
+  "custom/logo": {
+    "format": "⚔️",
+    "tooltip": false,
+    "on-click": "rofi -show drun"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    },
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    },
+    "on-click": "activate"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%H:%M 🕐 %a %d %b}",
+    "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+    "tooltip-format": "<big>{:%Y %B}</big>\\n<tt><small>{calendar}</small></tt>"
+  },
+  "network": {
+    "interface": "wlp*",
+    "format-wifi": "📶 {signalStrength}%",
+    "format-ethernet": "🌐 {ifname}",
+    "format-disconnected": "❌ Disconnected",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\\nGateway: {gwaddr}\\nStrength: {signalStrength}%",
+    "on-click": "nm-connection-editor"
+  },
+  "bluetooth": {
+    "format": "🔵 {status}",
+    "format-connected": "🔵 {device_alias}",
+    "format-connected-battery": "🔵 {device_alias} {device_battery_percentage}%",
+    "on-click": "~/.config/hypr-system/scripts/bluetooth-control.sh"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}% 🔵",
+    "format-bluetooth-muted": "🔇 🔵",
+    "format-muted": "🔇",
+    "format-icons": {
+      "headphone": "🎧",
+      "hands-free": "🎙️",
+      "headset": "🎧",
+      "phone": "📱",
+      "portable": "📱",
+      "car": "🚗",
+      "default": [
+        "🔈",
+        "🔉",
+        "🔊"
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "~/.config/hypr-system/scripts/volume-control.sh mute"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "⚡ {capacity}%",
+    "format-plugged": "🔌 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": [
+      "🪫",
+      "🔋",
+      "🔋",
+      "🔋",
+      "🔋"
+    ]
+  },
+  "custom/zerotier": {
+    "format": "🌐 {}",
+    "exec": "~/.config/hypr-system/scripts/zerotier-status.sh",
+    "interval": 30,
+    "tooltip": true,
+    "on-click": "~/.config/hypr-system/scripts/zerotier-control.sh"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "custom/config": {
+    "format": "⚙️",
+    "tooltip": "Configuration Menu",
+    "on-click": "~/.config/hypr-system/scripts/config-menu.sh"
+  },
+  "custom/power": {
+    "format": "⚡",
+    "tooltip": false,
+    "on-click": "~/.config/hypr-system/scripts/power-menu.sh"
+  }
+}

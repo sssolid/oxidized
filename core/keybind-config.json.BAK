@@ -100,6 +100,59 @@
           "command": "exec, python3 ~/.config/hypr-system/generators/apply-theme.py --switch-workspace-mode",
           "description": "Quick switch workspace mode"
         },
+        "SUPER, 1": { "command": "workspace, 1", "description": "The Keep" },
+        "SUPER, 2": { "command": "workspace, 2", "description": "The Forge" },
+        "SUPER, 3": { "command": "workspace, 3", "description": "The Library" },
+        "SUPER, 4": { "command": "workspace, 4", "description": "The Tavern" },
+        "SUPER, 5": { "command": "workspace, 5", "description": "The Market" },
+        "SUPER, 6": { "command": "workspace, 6", "description": "The Stables" },
+        "SUPER, 7": { "command": "workspace, 7", "description": "The Armory" },
+        "SUPER, 8": { "command": "workspace, 8", "description": "The Tower" },
+        "SUPER, 9": { "command": "workspace, 9", "description": "The Dungeon" },
+        "SUPER, 0": {
+          "command": "workspace, 10",
+          "description": "The Throne Room"
+        },
+        "SUPER SHIFT, 1": {
+          "command": "movetoworkspace, 1",
+          "description": "Move to The Keep"
+        },
+        "SUPER SHIFT, 2": {
+          "command": "movetoworkspace, 2",
+          "description": "Move to The Forge"
+        },
+        "SUPER SHIFT, 3": {
+          "command": "movetoworkspace, 3",
+          "description": "Move to The Library"
+        },
+        "SUPER SHIFT, 4": {
+          "command": "movetoworkspace, 4",
+          "description": "Move to The Tavern"
+        },
+        "SUPER SHIFT, 5": {
+          "command": "movetoworkspace, 5",
+          "description": "Move to The Market"
+        },
+        "SUPER SHIFT, 6": {
+          "command": "movetoworkspace, 6",
+          "description": "Move to The Stables"
+        },
+        "SUPER SHIFT, 7": {
+          "command": "movetoworkspace, 7",
+          "description": "Move to The Armory"
+        },
+        "SUPER SHIFT, 8": {
+          "command": "movetoworkspace, 8",
+          "description": "Move to The Tower"
+        },
+        "SUPER SHIFT, 9": {
+          "command": "movetoworkspace, 9",
+          "description": "Move to The Dungeon"
+        },
+        "SUPER SHIFT, 0": {
+          "command": "movetoworkspace, 10",
+          "description": "Move to The Throne Room"
+        },
         "SUPER, S": {
           "command": "togglespecialworkspace, magic",
           "description": "Special Workspace"

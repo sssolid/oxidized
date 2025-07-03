@@ -24,8 +24,11 @@ general {
     gaps_in = ${gaps_inner}
     gaps_out = ${gaps_outer}
     border_size = ${border_width}
-    col.active_border = $$cyberpunk_accent $$medieval_gold 45deg
-    col.inactive_border = $$border_inactive
+    # CORRECT gradient syntax from official Hyprland example
+    col.active_border = rgba(00ffffee) rgba(ffd700ee) 45deg
+    #
+    col.inactive_border = rgba(00ffffee) rgba(ffd700ee) 45deg
+    # col.inactive_border = $border_inactive
     layout = dwindle
     resize_on_border = true
     hover_icon_on_border = true
@@ -33,6 +36,7 @@ general {
 
 decoration {
     rounding = ${rounding}
+
     blur {
         enabled = ${blur_enabled}
         size = ${blur_size}
@@ -41,18 +45,25 @@ decoration {
         ignore_opacity = true
         new_optimizations = true
     }
-    drop_shadow = ${shadow_enabled}
-    shadow_range = ${shadow_range}
-    shadow_render_power = ${shadow_render_power}
-    col.shadow = ${semantic_shadow}
+
+    # Current Hyprland shadow syntax (nested block)
+    shadow {
+        enabled = ${shadow_enabled}
+        range = ${shadow_range}
+        render_power = ${shadow_render_power}
+        color = ${shadow}
+    }
+
     dim_inactive = true
     dim_strength = 0.1
 }
 
 input {
     kb_layout = us
+    kb_options = caps:super
     follow_mouse = 1
     sensitivity = 0
+
     touchpad {
         natural_scroll = yes
         disable_while_typing = true
