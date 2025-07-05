@@ -58,6 +58,7 @@ class ThemeGenerator:
             colors[category] = {}
             for name, value in color_group.items():
                 colors[category][name] = self.resolve_color(value)
+                colors[category][name + "_no_hash"] = self.resolve_color(value)[1:]
         return colors
 
     def get_template_variables(self):
@@ -79,14 +80,19 @@ class ThemeGenerator:
 
         # Add theme settings
         vars_dict.update({
+            'output_dir': self.output_dir, # .config/
+            'config_dir': self.config_dir, # .config/hypr-system/
             'font_primary': theme.get('typography', {}).get('font_primary', 'JetBrains Mono Nerd Font'),
             'font_secondary': theme['typography']['font_secondary'],
             'font_size_small': theme['typography']['size_small'],
             'font_size_normal': theme['typography']['size_normal'],
             'font_size_large': theme['typography']['size_large'],
             'font_size_title': theme['typography']['size_title'],
+            'font_size_icon_small': theme['typography']['icon_small'],
+            'font_size_icon_medium': theme['typography']['icon_medium'],
+            'font_size_icon_large': theme['typography']['icon_large'],
 
-            'primary_bg_overlay': theme['colors']['primary'].get('bg_overlay', theme['colors']['primary']['bg_secondary']),
+            'primary_quaternary': theme['colors']['primary'].get('quaternary', theme['colors']['primary']['quaternary']),
 
             'gaps_inner': theme['spacing']['gaps_inner'],
             'gaps_outer': theme['spacing']['gaps_outer'],
@@ -107,10 +113,10 @@ class ThemeGenerator:
             'shadow_render_power': theme['effects']['shadow']['render_power'],
 
             'anim_enabled': str(theme['effects']['animations']['enabled']).lower(),
-            'curve_cyberpunk': theme['effects']['animations']['curves']['cyberpunk'],
-            'curve_medieval': theme['effects']['animations']['curves']['medieval'],
-            'curve_smooth': theme['effects']['animations']['curves']['smooth'],
-            'curve_glow': theme['effects']['animations']['curves']['glow'],
+            'curve_primary': theme['effects']['animations']['curves']['primary'],
+            'curve_secondary': theme['effects']['animations']['curves']['secondary'],
+            'curve_tertiary': theme['effects']['animations']['curves']['tertiary'],
+            'curve_quaternary': theme['effects']['animations']['curves']['quaternary'],
 
             'waybar_height': theme['components']['waybar']['height'],
             'waybar_margin_top': theme['components']['waybar']['margin_top'],
@@ -204,11 +210,26 @@ class ThemeGenerator:
             keybindings += "bind = SUPER, bracketleft, backcyclevdesks\n"
             keybindings += "bind = SUPER, bracketright, cyclevdesks\n"
             keybindings += "bind = SUPER, 1, vdesk, 1\n"
+            keybindings += "bind = SUPER, 1, exec, swww img ~/.config/hypr-system/wallpapers/knight.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
             keybindings += "bind = SUPER, 2, vdesk, 2\n"
+            keybindings += "bind = SUPER, 2, exec, swww img ~/.config/hypr-system/wallpapers/armory.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
             keybindings += "bind = SUPER, 3, vdesk, 3\n"
+            keybindings += "bind = SUPER, 3, exec, swww img ~/.config/hypr-system/wallpapers/tavern.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 4, vdesk, 4\n"
+            keybindings += "bind = SUPER, 4, exec, swww img ~/.config/hypr-system/wallpapers/library.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 5, vdesk, 5\n"
+            keybindings += "bind = SUPER, 5, exec, swww img ~/.config/hypr-system/wallpapers/church.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 6, vdesk, 6\n"
+            keybindings += "bind = SUPER, 6, exec, swww img ~/.config/hypr-system/wallpapers/crypt.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 7, vdesk, 7\n"
+            keybindings += "bind = SUPER, 7, exec, swww img ~/.config/hypr-system/wallpapers/dungeon.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
             keybindings += "bind = SUPER SHIFT, 1, movetodesksilent, 1\n"
             keybindings += "bind = SUPER SHIFT, 2, movetodesksilent, 2\n"
             keybindings += "bind = SUPER SHIFT, 3, movetodesksilent, 3\n"
+            keybindings += "bind = SUPER SHIFT, 4, movetodesksilent, 4\n"
+            keybindings += "bind = SUPER SHIFT, 5, movetodesksilent, 5\n"
+            keybindings += "bind = SUPER SHIFT, 6, movetodesksilent, 6\n"
+            keybindings += "bind = SUPER SHIFT, 7, movetodesksilent, 7\n"
         else:
             keybindings += "# Per-monitor workspace keybindings\n"
             for i in range(1, 11):
@@ -303,6 +324,7 @@ class ThemeGenerator:
             ("hypr-monitors", self.output_dir / "hypr" / "configs" / "monitors.conf"),
             ("hypr-autostart", self.output_dir / "hypr" / "configs" / "autostart.conf"),
             ("waybar-css", self.output_dir / "waybar" / "style.css"),
+            ("waybar-config", self.output_dir / "waybar" / "config.jsonc"),
             ("rofi-rasi", self.output_dir / "rofi" / "config.rasi"),
             ("rofi-theme", self.output_dir / "rofi" / "themes" / "cyberpunk-medieval.rasi"),
             ("dunst", self.output_dir / "dunst" / "dunstrc"),

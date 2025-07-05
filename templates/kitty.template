@@ -30,7 +30,7 @@ touch_scroll_multiplier 1.0
 
 # Mouse
 mouse_hide_wait 3.0
-url_color ${cyberpunk_neon_cyan}
+url_color ${accent_primary}
 url_style curly
 open_url_with default
 url_prefixes file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp ssh
@@ -71,8 +71,8 @@ window_margin_width 0
 single_window_margin_width -1
 window_padding_width 8
 placement_strategy center
-active_border_color ${cyberpunk_neon_cyan}
-inactive_border_color ${medieval_castle_stone}
+active_border_color ${accent_primary}
+inactive_border_color ${neutral_primary}
 bell_border_color ${status_warning}
 inactive_text_alpha 1.0
 
@@ -93,55 +93,55 @@ active_tab_title_template none
 
 # Color scheme
 foreground ${text_primary}
-background ${primary_bg_primary}
-selection_foreground ${primary_bg_primary}
-selection_background ${cyberpunk_neon_cyan}
+background ${primary_primary}
+selection_foreground ${primary_primary}
+selection_background ${accent_primary}
 
 # Cursor colors
-cursor ${cyberpunk_neon_cyan}
-cursor_text_color ${primary_bg_primary}
+cursor ${accent_primary}
+cursor_text_color ${primary_primary}
 
 # Tab bar colors
-active_tab_foreground   ${primary_bg_primary}
-active_tab_background   ${cyberpunk_neon_cyan}
+active_tab_foreground   ${primary_primary}
+active_tab_background   ${accent_primary}
 inactive_tab_foreground ${text_secondary}
-inactive_tab_background ${primary_bg_secondary}
-tab_bar_background      ${primary_bg_primary}
+inactive_tab_background ${primary_secondary}
+tab_bar_background      ${primary_primary}
 tab_bar_margin_color    none
 
 # Mark colors
-mark1_foreground ${primary_bg_primary}
-mark1_background ${cyberpunk_neon_cyan}
-mark2_foreground ${primary_bg_primary}
-mark2_background ${medieval_royal_gold}
-mark3_foreground ${primary_bg_primary}
-mark3_background ${cyberpunk_neon_purple}
+mark1_foreground ${primary_primary}
+mark1_background ${accent_primary}
+mark2_foreground ${primary_primary}
+mark2_background ${neutral_primary}
+mark3_foreground ${primary_primary}
+mark3_background ${accent_quaternary}
 
 # The 16 terminal colors
 
 # Normal colors
-color0 ${primary_bg_primary}
-color1 ${medieval_battle_crimson}
-color2 ${cyberpunk_neon_green}
-color3 ${medieval_royal_gold}
-color4 ${cyberpunk_electric_blue}
-color5 ${cyberpunk_neon_purple}
-color6 ${cyberpunk_neon_cyan}
+color0 ${primary_primary}
+color1 ${status_error}
+color2 ${accent_tertiary}
+color3 ${neutral_primary}
+color4 ${status_info}
+color5 ${accent_quaternary}
+color6 ${accent_primary}
 color7 ${text_secondary}
 
 # Bright colors
-color8  ${medieval_iron_gray}
+color8  ${neutral_tertiary}
 color9  ${status_error}
 color10 ${status_success}
 color11 ${status_warning}
 color12 ${text_accent}
-color13 ${cyberpunk_neon_pink}
-color14 ${cyberpunk_neon_cyan}
+color13 ${accent_secondary}
+color14 ${accent_primary}
 color15 ${text_primary}
 
 # Extended colors
-color16 ${medieval_ancient_bronze}
-color17 ${medieval_battle_crimson}
+color16 ${accent_tertiary}
+color17 ${status_error}
 
 # Advanced settings
 shell .

@@ -5,6 +5,9 @@
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
+# Idle and lock
+exec-once = hypridle
+
 # Theme setup
 exec-once = gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 exec-once = gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
@@ -31,7 +34,8 @@ exec-once = udiskie --tray --notify
 exec-once = [[ -f ~/.config/eww/hotkey-display/eww.yuck ]] && eww daemon
 
 # Wallpaper setup
-exec-once = ~/.config/hypr-system/scripts/wallpaper-cycle.sh init
+exec-once = swww-daemon & sleep 0.5 && swww img ~/.config/hypr-system/wallpapers/knight.png --transition-type any
+# exec-once = ~/.config/hypr-system/scripts/wallpaper-cycle.sh init
 
 # Clipboard manager
 exec-once = wl-paste --type text --watch cliphist store

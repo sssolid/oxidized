@@ -5,24 +5,24 @@ animations {
     enabled = ${anim_enabled}
 
     # Bezier curves from theme
-    bezier = cyberpunk, ${curve_cyberpunk}
-    bezier = medieval, ${curve_medieval}
-    bezier = smooth, ${curve_smooth}
-    bezier = glow, ${curve_glow}
+    bezier = primary, ${curve_primary}
+    bezier = secondary, ${curve_secondary}
+    bezier = tertiary, ${curve_tertiary}
+    bezier = quaternary, ${curve_quaternary}
 
-    # Window animations with cyberpunk flair
-    animation = windows, 1, 7, cyberpunk
-    animation = windowsOut, 1, 7, cyberpunk, popin 80%
-    animation = border, 1, 10, glow
-    animation = borderangle, 1, 8, glow
+    # Window animations with primary flair
+    animation = windows, 1, 7, primary
+    animation = windowsOut, 1, 7, primary, popin 80%
+    animation = border, 1, 10, quaternary
+    animation = borderangle, 1, 8, quaternary
 
     # Fade animations
-    animation = fade, 1, 7, smooth
-    animation = fadeOut, 1, 7, smooth
+    animation = fade, 1, 7, tertiary
+    animation = fadeOut, 1, 7, tertiary
 
-    # Workspace animations with medieval grandeur
-    animation = workspaces, 1, 6, medieval, slide
-    animation = specialWorkspace, 1, 6, medieval, slidevert
+    # Workspace animations with secondary grandeur
+    animation = workspaces, 1, 6, secondary, slide
+    animation = specialWorkspace, 1, 6, secondary, slidevert
 }
 
 # Window effects

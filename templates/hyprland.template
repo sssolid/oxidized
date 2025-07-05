@@ -12,23 +12,29 @@ source = ~/.config/hypr/configs/animations.conf
 source = ~/.config/hypr/configs/workspaces.conf
 
 # Variables from theme config
-$$cyberpunk_accent = ${cyberpunk_neon_cyan}
-$$medieval_gold = ${medieval_royal_gold}
-$$bg_primary = ${primary_bg_primary}
-$$bg_secondary = ${primary_bg_secondary}
+$$primary_primary = ${primary_primary}
+$$primary_primary_no_hash = ${primary_primary_no_hash}
+$$primary_secondary = ${primary_secondary}
+$$primary_tertiary = ${primary_tertiary}
+$$primary_quaternary = ${primary_quaternary}
+$$accent_primary = ${accent_primary}
+$$accent_primary_no_hash = ${accent_primary_no_hash}
+$$accent_secondary = ${accent_secondary}
+$$accent_tertiary = ${accent_tertiary}
+$$accent_quaternary = ${accent_quaternary}
+$$neutral_primary = ${neutral_primary}
+$$bg_primary = ${primary_primary}
+$$bg_secondary = ${primary_secondary}
 $$text_primary = ${text_primary}
-$$border_active = ${cyberpunk_neon_cyan}
-$$border_inactive = ${medieval_castle_stone}
+$$border_active = ${accent_primary}
+$$border_inactive = ${neutral_tertiary}
 
 general {
     gaps_in = ${gaps_inner}
     gaps_out = ${gaps_outer}
     border_size = ${border_width}
-    # CORRECT gradient syntax from official Hyprland example
-    col.active_border = rgba(00ffffee) rgba(ffd700ee) 45deg
-    #
-    col.inactive_border = rgba(00ffffee) rgba(ffd700ee) 45deg
-    # col.inactive_border = $border_inactive
+    col.active_border = rgba(${accent_primary_no_hash}ee) rgba(${accent_secondary_no_hash}ee) 45deg
+    col.inactive_border = rgba(${primary_primary_no_hash}ee) rgba(${primary_secondary_no_hash}ee) 45deg
     layout = dwindle
     resize_on_border = true
     hover_icon_on_border = true

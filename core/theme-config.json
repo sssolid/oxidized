@@ -1,49 +1,47 @@
 {
   "meta": {
-    "name": "Cyberpunk Medieval",
-    "version": "2.0",
+    "name": "Cyberpunk Medieval - Sharp",
+    "version": "2.1",
     "author": "System",
-    "description": "Dynamic cyberpunk theme with medieval touches"
+    "description": "Sharp cyberpunk theme with medieval touches - computers in the dark ages"
   },
   "colors": {
     "primary": {
-      "bg_primary": "#0d1117",
-      "bg_secondary": "#161b22",
-      "bg_tertiary": "#21262d",
-      "bg_overlay": "#0d1117ee"
+      "primary": "#0d0c0b",
+      "secondary": "#1a1815",
+      "tertiary": "#2c2a25",
+      "quaternary": "#0d0c0b"
     },
-    "cyberpunk": {
-      "neon_cyan": "#00ffff",
-      "neon_pink": "#ff006e",
-      "neon_green": "#39ff14",
-      "neon_purple": "#8a2be2",
-      "electric_blue": "#0080ff"
+    "accent": {
+      "primary": "#a78a4f",
+      "secondary": "#4e4e50",
+      "tertiary": "#70563e",
+      "quaternary": "#7a1c1c"
     },
-    "medieval": {
-      "royal_gold": "#ffd700",
-      "ancient_bronze": "#cd7f32",
-      "battle_crimson": "#dc143c",
-      "castle_stone": "#696969",
-      "iron_gray": "#36454f"
+    "neutral": {
+      "primary": "#3a2f28",
+      "secondary": "#121212",
+      "tertiary": "#4c4c4e",
+      "quaternary": "#2f2f2f"
     },
     "text": {
-      "primary": "#e6edf3",
-      "secondary": "#8b949e",
-      "accent": "#58a6ff",
-      "muted": "#6e7681"
+      "primary": "#e8e1cf",
+      "secondary": "#b4a990",
+      "accent": "#a78a4f",
+      "muted": "#777166"
     },
     "status": {
-      "success": "#39ff14",
-      "warning": "#ffd700",
-      "error": "#dc143c",
-      "info": "#00ffff"
+      "success": "#7d945d",
+      "warning": "#c29e53",
+      "error": "#7a1c1c",
+      "info": "#8f7f56"
     },
     "semantic": {
-      "border_active": "cyberpunk.neon_cyan",
-      "border_inactive": "medieval.castle_stone",
-      "accent_primary": "cyberpunk.neon_cyan",
-      "accent_secondary": "medieval.royal_gold",
-      "shadow": "rgba(0, 0, 0, 0.8)"
+      "border_active": "neutral.border_light",
+      "border_inactive": "neutral.border_dark",
+      "accent_primary": "accent.primary",
+      "accent_secondary": "accent.secondary",
+      "shadow": "rgba(0, 0, 0, 0.88)"
     }
   },
   "typography": {
@@ -52,40 +50,43 @@
     "size_small": 11,
     "size_normal": 13,
     "size_large": 16,
-    "size_title": 20
+    "size_title": 20,
+    "icon_small": 16,
+    "icon_medium": 24,
+    "icon_large": 32
   },
   "spacing": {
-    "gaps_inner": 8,
-    "gaps_outer": 16,
-    "border_width": 3,
-    "rounding": 12,
+    "gaps_inner": 10,
+    "gaps_outer": 20,
+    "border_width": 2,
+    "rounding": 0,
     "margins": {
-      "small": 4,
-      "medium": 8,
-      "large": 16,
-      "xlarge": 24
+      "small": 2,
+      "medium": 5,
+      "large": 12,
+      "xlarge": 20
     }
   },
   "effects": {
     "blur": {
       "enabled": true,
-      "size": 8,
-      "passes": 3,
-      "vibrancy": 0.1696
+      "size": 6,
+      "passes": 2,
+      "vibrancy": 0.1
     },
     "shadow": {
       "enabled": true,
-      "range": 20,
-      "render_power": 3
+      "range": 15,
+      "render_power": 2
     },
     "animations": {
       "enabled": true,
-      "speed_multiplier": 1.0,
+      "speed_multiplier": 1.2,
       "curves": {
-        "cyberpunk": "0.25, 0.46, 0.45, 0.94",
-        "medieval": "0.68, -0.55, 0.265, 1.55",
-        "smooth": "0.23, 1, 0.320, 1",
-        "glow": "0.175, 0.885, 0.320, 1.275"
+        "primary": "0.25, 0.46, 0.45, 0.94",
+        "secondary": "0.68, -0.55, 0.265, 1.55",
+        "tertiary": "0.23, 1, 0.320, 1",
+        "quaternary": "0.175, 0.885, 0.320, 1.275"
       }
     }
   },
@@ -93,21 +94,29 @@
     "mode": "virtual_desktops",
     "virtual_desktops": {
       "plugin_config": {
-        "names": "1:play,2:work,3:mail",
+        "names": "1:home,2:armory,3:tavern,4:library,5:church,6:crypt,7:dungeon",
         "cycleworkspaces": 0,
         "rememberlayout": "none",
         "notifyinit": 0,
         "verbose_logging": 0
       },
       "names": {
-        "1": "Play",
-        "2": "Work",
-        "3": "Mail"
+        "1": "Home",
+        "2": "Armory",
+        "3": "Tavern",
+        "4": "Libary",
+        "5": "Church",
+        "6": "Crypt",
+        "7": "Dungeon"
       },
       "icons": {
         "1": "🎮",
         "2": "💼",
-        "3": "📧"
+        "3": "📧",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": ""
       }
     },
     "per_monitor": {
@@ -139,9 +148,9 @@
   },
   "components": {
     "waybar": {
-      "height": 42,
+      "height": 24,
       "margin_top": 8,
-      "margin_sides": 16,
+      "margin_sides": 20,
       "modules_left": ["custom/logo", "hyprland/workspaces", "hyprland/window"],
       "modules_center": ["clock"],
       "modules_right": [

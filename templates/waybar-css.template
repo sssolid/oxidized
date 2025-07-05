@@ -1,175 +1,234 @@
-/* 🎨 Generated Waybar CSS - DO NOT EDIT MANUALLY */
+/* 🗡️ Sharp Cyberpunk Medieval Waybar CSS - DO NOT EDIT MANUALLY */
 /* Generated from: ~/.config/hypr-system/templates/waybar-css.template */
-/* Only uses GTK3-supported CSS properties */
+/* Sharp edges, proper spacing, medieval-cyber aesthetic */
 
 * {
     font-family: '${font_primary}', monospace;
     font-size: ${font_size_normal}px;
     min-height: 0;
+    border: none;
+    border-radius: 0;
 }
 
 window#waybar {
-    background: linear-gradient(135deg, ${primary_bg_primary} 0%, ${primary_bg_secondary} 100%);
+    background: transparent;
     color: ${text_primary};
-    border-radius: ${rounding}px;
-    border: 2px solid ${cyberpunk_neon_cyan};
-    box-shadow: 0 0 20px ${cyberpunk_neon_cyan};
+    box-shadow: 0 4px 12px ${shadow};
     margin: ${waybar_margin_top}px ${waybar_margin_sides}px 0 ${waybar_margin_sides}px;
-    opacity: 0.93;
+    opacity: 0.95;
 }
 
-/* Left modules */
+/* Module containers with proper spacing */
 .modules-left {
-    margin: 0 ${margin_medium}px;
+    margin: 0 ${margin_large}px;
+    padding: 0 ${margin_medium}px;
 }
 
+.modules-center {
+    margin: 0 ${margin_large}px;
+}
+
+.modules-right {
+    margin: 0 ${margin_large}px;
+    padding: 0 ${margin_medium}px;
+}
+
+/* Logo - medieval crest style */
 #custom-logo {
-    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}, ${medieval_royal_gold});
-    border-radius: 50%;
-    padding: ${margin_small}px ${margin_medium}px;
-    margin: ${margin_small}px;
-    color: ${cyberpunk_neon_cyan};
-    border: 1px solid ${cyberpunk_neon_cyan};
-    font-size: ${font_size_large}px;
-    opacity: 0.7;
+    background-image: url("file://${config_dir}/media/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: ${margin_medium}px ${margin_large}px;
+    margin: ${margin_medium}px ${margin_large}px ${margin_medium}px 0;
+    font-size: 0; /* Hide emoji fallback */
+    min-width: 48px;
+    min-height: 48px;
 }
 
 #custom-logo:hover {
-    opacity: 1.0;
-    box-shadow: 0 0 15px ${cyberpunk_neon_cyan};
+    background-image: url("file://${config_dir}/media/logo-hover.png");
 }
 
+/* Workspaces - fortress battlements style */
 #workspaces {
-    background: ${primary_bg_secondary};
-    border-radius: ${rounding}px;
-    margin: ${margin_small}px ${margin_medium}px;
+    background: ${primary_secondary};
+    margin: ${margin_medium}px ${margin_large}px ${margin_medium}px 0;
     padding: 0 ${margin_small}px;
-    border: 1px solid ${cyberpunk_neon_cyan};
-    opacity: 0.8;
+    border: 2px solid ${neutral_tertiary};
+    border-top: 3px solid ${neutral_quaternary};
 }
 
 #workspaces button {
-    padding: ${margin_small}px ${margin_medium}px;
-    margin: 2px;
-    border-radius: 6px;
+    padding: ${margin_medium}px ${margin_large}px;
+    margin: 2px ${margin_small}px;
     background: transparent;
     color: ${text_secondary};
-    border: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    font-size: ${font_size_large}px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-size: ${font_size_normal}px;
+    min-width: 35px;
 }
 
 #workspaces button:hover {
-    background: ${cyberpunk_neon_cyan};
-    color: ${primary_bg_primary};
-    box-shadow: 0 0 10px ${cyberpunk_neon_cyan};
-    opacity: 0.7;
+    background: ${primary_tertiary};
+    color: ${text_primary};
+    border-color: ${neutral_quaternary};
 }
 
 #workspaces button.active {
-    background: linear-gradient(45deg, ${cyberpunk_neon_cyan}, ${medieval_royal_gold});
-    color: ${primary_bg_primary};
-    border: 1px solid ${cyberpunk_neon_cyan};
-    box-shadow: 0 0 15px ${cyberpunk_neon_cyan};
-    opacity: 0.9;
+    background: linear-gradient(90deg, ${neutral_primary}, ${accent_tertiary});
+    color: ${primary_primary};
+    border: 2px solid ${accent_tertiary};
+    font-weight: bold;
 }
 
+#workspaces button.urgent {
+    background: ${status_error};
+    color: ${text_primary};
+    border-color: ${status_error};
+    animation: urgent-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes urgent-pulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Window title - scroll style */
 #window {
-    background: ${primary_bg_secondary};
-    border-radius: ${rounding}px;
-    padding: ${margin_small}px ${margin_large}px;
-    margin: ${margin_small}px ${margin_medium}px;
+    background: ${primary_secondary};
+    padding: ${margin_medium}px ${margin_large}px;
+    margin: ${margin_medium}px ${margin_large}px ${margin_medium}px 0;
     color: ${text_accent};
-    border: 1px solid ${text_accent};
-    opacity: 0.8;
-    min-width: 100px;
+    border: 1px solid ${neutral_tertiary};
+    border-left: 3px solid ${accent_primary};
+    min-width: 120px;
+    font-style: italic;
 }
 
-/* Center modules */
-.modules-center {
-    margin: 0 ${margin_medium}px;
-}
-
+/* Clock - ancient timepiece style */
 #clock {
-    background: linear-gradient(135deg, ${medieval_royal_gold}, ${medieval_ancient_bronze});
-    border-radius: ${rounding}px;
-    padding: ${margin_small}px ${margin_large}px;
-    color: ${primary_bg_primary};
-    border: 1px solid ${medieval_royal_gold};
+    padding: ${margin_medium}px ${margin_large}px;
+    margin: ${margin_medium}px 0;
+    color: ${text_secondary};
     font-weight: bold;
     font-size: ${font_size_normal}px;
-    opacity: 0.9;
-    min-width: 120px;
+    min-width: 140px;
 }
 
 #clock:hover {
-    opacity: 1.0;
-    box-shadow: 0 0 15px ${medieval_royal_gold};
+    color: ${text_primary};
+    border-top-color: ${accent_primary};
 }
 
-/* Right modules */
-.modules-right {
-    margin: 0 ${margin_medium}px;
+/* Base styling for all modules */
+#clock,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#tray,
+#workspaces button,
+#waybar-vd,
+#custom-power,
+#custom-zerotier {
+    background-color: rgba(216, 200, 160, 0.1);  /* Parchment color with semi-opacity */
+    color: ${text_primary};
+    border: 2px solid #7a5a30;  /* Aged bronze/burnished brass */
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin: 2px 4px;
+    box-shadow:
+        inset 0 0 4px rgba(90, 60, 30, 0.25),
+        0 0 6px rgba(0, 0, 0, 0.3);
+    font-family: "EB Garamond", "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-#network, #bluetooth, #pulseaudio, #battery, #custom-zerotier {
-    background: ${primary_bg_secondary};
-    border-radius: ${rounding}px;
-    padding: ${margin_small}px ${margin_medium}px;
-    margin: ${margin_small}px 2px;
-    border: 1px solid ${text_secondary};
-    transition: all 0.3s ease;
-    font-size: ${font_size_normal}px;
-    opacity: 0.8;
-    min-width: 30px;
+/* Hover/active glow effect — subtle rune-like magic pulse */
+#clock:hover,
+#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
+#battery:hover,
+#tray:hover,
+#workspaces button:hover,
+#waybar-vd button:hover,
+#custom-power:hover,
+#custom-zerotier:hover {
+    background-color: rgba(230, 210, 170, 0.25);
+    border-color: #a07840;
+    box-shadow:
+        inset 0 0 6px rgba(255, 235, 180, 0.3),
+        0 0 8px rgba(255, 200, 100, 0.25);
 }
 
-#network:hover, #bluetooth:hover, #pulseaudio:hover, #battery:hover, #custom-zerotier:hover {
-    border-color: ${cyberpunk_neon_cyan};
-    box-shadow: 0 0 10px ${cyberpunk_neon_cyan};
-    opacity: 1.0;
+/* Network status */
+#network {
+    color: ${text_primary};
 }
 
 #network.disconnected {
     color: ${status_error};
-    border-color: ${status_error};
+    background: ${accent_primary};
+}
+
+/* Bluetooth status */
+#bluetooth {
+    color: ${text_primary};
+    border-left: 3px solid ${status_info};
 }
 
 #bluetooth.connected {
-    color: ${cyberpunk_electric_blue};
-    border-color: ${cyberpunk_electric_blue};
+    color: ${status_info};
+    border-top: 2px solid ${status_info};
+}
+
+#bluetooth.disconnected {
+    color: ${text_muted};
+    border-left-color: ${neutral_quaternary};
+}
+
+/* Audio control */
+#pulseaudio {
+    color: ${text_primary};
 }
 
 #pulseaudio.muted {
     color: ${status_error};
-    border-color: ${status_error};
+    border: ${status_error};
+}
+
+/* Battery indicator */
+#battery {
+    color: ${status_success};
+    border-right: 3px solid ${status_success};
 }
 
 #battery.warning {
     color: ${status_warning};
-    border-color: ${status_warning};
+    border-right-color: ${status_warning};
+    border-top: 2px solid ${status_warning};
 }
 
 #battery.critical {
     color: ${status_error};
-    border-color: ${status_error};
-    animation: blink 1s linear infinite;
+    border-right-color: ${status_error};
+    border-top: 2px solid ${status_error};
+    animation: battery-critical 1s linear infinite;
 }
 
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 1; }
-    51% { opacity: 0.5; }
-    100% { opacity: 0.5; }
+@keyframes battery-critical {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
 }
 
+/* System tray */
 #tray {
-    background: ${primary_bg_secondary};
-    border-radius: ${rounding}px;
-    padding: ${margin_small}px;
-    margin: ${margin_small}px 2px;
-    border: 1px solid ${text_secondary};
-    opacity: 0.8;
+    padding: ${margin_small}px ${margin_medium}px;
+    margin: ${margin_medium}px ${margin_small}px;
 }
 
 #tray > .passive {
@@ -180,48 +239,122 @@ window#waybar {
     color: ${text_primary};
 }
 
+#tray > .needs-attention {
+    color: ${status_warning};
+}
+
+/* Configuration button - gear style */
 #custom-config {
-    background: ${cyberpunk_neon_purple};
-    border-radius: 50%;
-    padding: ${margin_small}px;
-    margin: ${margin_small}px;
+    background: ${accent_tertiary};
+    padding: ${margin_medium}px;
+    margin: ${margin_medium}px ${margin_small}px;
     color: ${text_primary};
-    border: 1px solid ${cyberpunk_neon_purple};
-    min-width: 30px;
-    font-size: ${font_size_normal}px;
-    opacity: 0.7;
+    border: 2px solid ${accent_tertiary};
+    border-bottom: 3px solid ${neutral_quaternary};
+    min-width: 35px;
+    font-size: ${font_size_icon_medium}px;
 }
 
 #custom-config:hover {
-    opacity: 1.0;
-    box-shadow: 0 0 15px ${cyberpunk_neon_purple};
+    background: ${primary_tertiary};
+    border-color: ${accent_tertiary};
+    border-top: 3px solid ${accent_tertiary};
 }
 
+/* Power button - danger style */
 #custom-power {
-    background: linear-gradient(135deg, ${medieval_battle_crimson}, ${status_error});
-    border-radius: 50%;
-    padding: ${margin_small}px;
-    margin: ${margin_small}px;
+    background: linear-gradient(135deg, ${status_error}, ${status_error});
+    padding: ${margin_medium}px;
+    margin: ${margin_medium}px 0 ${margin_medium}px ${margin_small}px;
     color: ${text_primary};
-    border: 2px solid ${medieval_battle_crimson};
-    min-width: 30px;
-    font-size: ${font_size_normal}px;
+    border: 2px solid ${status_error};
+    border-right: 4px solid ${status_error};
+    min-width: 35px;
     font-weight: bold;
-    opacity: 0.9;
+    font-size: ${font_size_icon_medium}px;
 }
 
 #custom-power:hover {
-    opacity: 1.0;
-    box-shadow: 0 0 20px ${medieval_battle_crimson};
+    background: linear-gradient(135deg, ${status_error}, ${status_error});
+    border-color: ${status_error};
+    box-shadow: 0 0 8px ${status_error};
 }
 
-/* Tooltips */
+/* Tooltips - parchment style */
 tooltip {
-    background: ${primary_bg_primary};
-    border: 2px solid ${cyberpunk_neon_cyan};
-    border-radius: ${rounding}px;
+    background: linear-gradient(135deg, ${primary_primary}, ${primary_secondary});
+    border: 2px solid ${neutral_tertiary};
+    border-top: 3px solid ${neutral_primary};
     color: ${text_primary};
-    box-shadow: 0 0 20px ${cyberpunk_neon_cyan};
+    box-shadow: 0 4px 12px ${shadow};
     font-family: '${font_primary}', monospace;
     opacity: 0.95;
+    padding: ${margin_medium}px;
+}
+
+#waybar-vd * {
+  font-size: ${font_size_icon_medium}px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Reset button defaults for clean styling */
+#waybar-vd button {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 2px 12px 2px 9px;
+    margin: 0 2px;
+    border-radius: 4px;
+    font-weight: normal;
+    /* Smooth transitions for all interactions */
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-family: inherit;
+}
+
+/* Focused Virtual Desktop */
+#waybar-vd button.vdesk-focused {
+    color: ${primary_primary};
+    font-weight: bold;
+    background-color: ${accent_primary};
+}
+
+/* Unfocused Virtual Desktop */
+#waybar-vd button.vdesk-unfocused {
+    color: ${accent_tertiary};
+    font-weight: normal;
+}
+
+/* Manual Hover Effects (CSS :hover doesn't work in CFFI modules) */
+#waybar-vd button.hover {
+    background-color: ${accent_primary};
+    color: ${primary_primary};
+}
+
+#waybar-vd button.hover.vdesk-focused {
+    background-color: rgba(205, 189, 255, 0.25);
+    color: #cdbdff;
+}
+
+#waybar-vd button.hover.vdesk-unfocused {
+    background-color: ${neutral_primary};
+    color: ${primary_quaternary};
+}
+
+/* Animation States */
+#waybar-vd button.creating {
+    opacity: 0;
+}
+
+#waybar-vd button.destroying {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Hidden Virtual Desktops */
+#waybar-vd button.hidden {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
 }

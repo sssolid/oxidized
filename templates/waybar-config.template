@@ -8,19 +8,20 @@
   "margin-right": ${waybar_margin_sides},
   "modules-left": [
     "custom/logo",
-    "hyprland/workspaces",
+    // "hyprland/workspaces",
+    "cffi/virtual-desktops",
     "hyprland/window"
   ],
   "modules-center": [
     "clock"
   ],
   "modules-right": [
+    "tray",
     "custom/zerotier",
     "network",
     "bluetooth",
     "pulseaudio",
     "battery",
-    "tray",
     "custom/config",
     "custom/power"
   ],
@@ -48,9 +49,26 @@
       "2": [],
       "3": [],
       "4": [],
-      "5": []
+      "5": [],
+      "6": [],
+      "7": []
     },
     "on-click": "activate"
+  },
+  "cffi/virtual-desktops": {
+    "module_path": "${output_dir}/waybar/modules/libwaybar_vd.so",
+    "format": "{icon}",
+    "format_icons": {
+        "1": "󰒘",
+        "2": "󱢾",
+        "3": "",
+        "4": "󰌱",
+        "5": "󰅄",
+        "6": "󰭿",
+        "7": ""
+    },
+    "show_empty": true,
+    "show_window_count": true
   },
   "hyprland/window": {
     "format": "{}",
@@ -60,14 +78,17 @@
   "clock": {
     "format": "{:%H:%M 🕐 %a %d %b}",
     "format-alt": "{:%Y-%m-%d %H:%M:%S}",
-    "tooltip-format": "<big>{:%Y %B}</big>\\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>
+    <tt><small>{calendar}</small></tt>"
   },
   "network": {
-    "interface": "wlp*",
+    "interface": "wlo*",
     "format-wifi": "📶 {signalStrength}%",
     "format-ethernet": "🌐 {ifname}",
     "format-disconnected": "❌ Disconnected",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\\nGateway: {gwaddr}\\nStrength: {signalStrength}%",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}
+    Gateway: {gwaddr}
+    Strength: {signalStrength}%",
     "on-click": "nm-connection-editor"
   },
   "bluetooth": {

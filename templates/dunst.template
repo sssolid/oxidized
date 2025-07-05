@@ -15,8 +15,8 @@
     # Appearance
     corner_radius = ${rounding}
     frame_width = 2
-    frame_color = "${cyberpunk_neon_cyan}"
-    background = "${primary_bg_secondary}f0"
+    frame_color = "${accent_primary}"
+    background = "${primary_secondary}f0"
     foreground = "${text_primary}"
 
     # Typography
@@ -76,21 +76,21 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "${primary_bg_tertiary}e0"
+    background = "${primary_tertiary}e0"
     foreground = "${text_secondary}"
-    frame_color = "${medieval_castle_stone}"
+    frame_color = "${neutral_tertiary}"
     timeout = 5
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "${primary_bg_secondary}f0"
+    background = "${primary_secondary}f0"
     foreground = "${text_primary}"
-    frame_color = "${cyberpunk_neon_cyan}"
+    frame_color = "${accent_primary}"
     timeout = 8
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "${medieval_battle_crimson}f0"
+    background = "${status_error}f0"
     foreground = "${text_primary}"
     frame_color = "${status_error}"
     timeout = 0
@@ -99,71 +99,71 @@
 # Custom rules for specific applications
 [volume]
     appname = "Volume Control"
-    background = "${cyberpunk_neon_cyan}30"
+    background = "${accent_primary}30"
     foreground = "${text_primary}"
-    frame_color = "${cyberpunk_neon_cyan}"
+    frame_color = "${accent_primary}"
     timeout = 2
     format = "<b>%s</b>\n%b"
 
 [brightness]
     appname = "Brightness"
-    background = "${medieval_royal_gold}30"
+    background = "${neutral_primary}30"
     foreground = "${text_primary}"
-    frame_color = "${medieval_royal_gold}"
+    frame_color = "${neutral_primary}"
     timeout = 2
 
 [bluetooth]
     appname = "*Bluetooth*"
-    background = "${cyberpunk_electric_blue}30"
+    background = "${status_info}30"
     foreground = "${text_primary}"
-    frame_color = "${cyberpunk_electric_blue}"
+    frame_color = "${status_info}"
     timeout = 3
 
 [network]
     appname = "*Network*"
-    background = "${cyberpunk_neon_green}30"
+    background = "${accent_tertiary}30"
     foreground = "${text_primary}"
-    frame_color = "${cyberpunk_neon_green}"
+    frame_color = "${accent_tertiary}"
     timeout = 3
 
 [theme]
     appname = "*Theme*"
-    background = "${cyberpunk_neon_purple}30"
+    background = "${accent_tertiary}30"
     foreground = "${text_primary}"
-    frame_color = "${cyberpunk_neon_purple}"
+    frame_color = "${accent_tertiary}"
     timeout = 3
 
 [wallpaper]
     appname = "*Wallpaper*"
-    background = "${medieval_royal_gold}30"
+    background = "${neutral_primary}30"
     foreground = "${text_primary}"
-    frame_color = "${medieval_royal_gold}"
+    frame_color = "${neutral_primary}"
     timeout = 3
 
 [hotkeys]
     appname = "*Hotkey*"
-    background = "${cyberpunk_neon_cyan}30"
+    background = "${accent_primary}30"
     foreground = "${text_primary}"
-    frame_color = "${cyberpunk_neon_cyan}"
+    frame_color = "${accent_primary}"
     timeout = 5
 
 [config]
     appname = "*Config*"
-    background = "${cyberpunk_neon_purple}30"
+    background = "${accent_tertiary}30"
     foreground = "${text_primary}"
-    frame_color = "${cyberpunk_neon_purple}"
+    frame_color = "${accent_tertiary}"
     timeout = 3
 
 [system]
     appname = "System"
-    background = "${primary_bg_secondary}f0"
+    background = "${primary_secondary}f0"
     foreground = "${text_primary}"
     frame_color = "${text_accent}"
     timeout = 5
 
 [error]
     appname = "*Error*"
-    background = "${medieval_battle_crimson}f0"
+    background = "${status_error}f0"
     foreground = "${text_primary}"
     frame_color = "${status_error}"
     timeout = 10
@@ -171,14 +171,14 @@
 
 [success]
     appname = "*Success*"
-    background = "${cyberpunk_neon_green}30"
+    background = "${accent_tertiary}30"
     foreground = "${text_primary}"
     frame_color = "${status_success}"
     timeout = 3
 
 [warning]
     appname = "*Warning*"
-    background = "${medieval_royal_gold}30"
+    background = "${neutral_primary}30"
     foreground = "${text_primary}"
     frame_color = "${status_warning}"
     timeout = 5

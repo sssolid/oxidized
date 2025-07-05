@@ -8,25 +8,25 @@
     font: "${font_primary} ${font_size_normal}";
     background: transparent;
     foreground: ${text_primary};
-    active-background: ${cyberpunk_neon_cyan};
-    active-foreground: ${primary_bg_primary};
+    active-background: ${accent_primary};
+    active-foreground: ${primary_primary};
     normal-background: transparent;
     normal-foreground: ${text_primary};
     urgent-background: ${status_error};
     urgent-foreground: ${text_primary};
-    alternate-normal-background: ${primary_bg_secondary};
+    alternate-normal-background: ${primary_secondary};
     alternate-normal-foreground: ${text_primary};
-    selected-normal-background: ${cyberpunk_neon_cyan};
-    selected-normal-foreground: ${primary_bg_primary};
-    border-color: ${cyberpunk_neon_cyan};
+    selected-normal-background: ${accent_primary};
+    selected-normal-foreground: ${primary_primary};
+    border-color: ${accent_primary};
     spacing: ${margin_medium};
 }
 
 window {
-    background-color: ${primary_bg_primary};
+    background-color: ${primary_primary};
     border: 2;
     border-radius: ${rounding};
-    border-color: ${cyberpunk_neon_cyan};
+    border-color: ${accent_primary};
     padding: ${margin_large};
     width: ${rofi_width};
     location: center;
@@ -44,8 +44,8 @@ message {
     border: 0;
     border-radius: ${rounding};
     padding: ${margin_medium};
-    background-color: ${medieval_royal_gold};
-    text-color: ${primary_bg_primary};
+    background-color: ${neutral_primary};
+    text-color: ${primary_primary};
 }
 
 textbox {
@@ -55,17 +55,17 @@ textbox {
 inputbar {
     children: [prompt, textbox-prompt-colon, entry, case-indicator];
     spacing: ${margin_small};
-    background-color: ${primary_bg_secondary};
+    background-color: ${primary_secondary};
     text-color: ${text_primary};
     border: 1;
     border-radius: ${rounding};
-    border-color: ${cyberpunk_neon_cyan};
+    border-color: ${accent_primary};
     padding: ${margin_medium};
 }
 
 prompt {
     spacing: 0;
-    text-color: ${cyberpunk_neon_cyan};
+    text-color: ${accent_primary};
     background-color: transparent;
 }
 
@@ -73,7 +73,7 @@ textbox-prompt-colon {
     expand: false;
     str: ":";
     margin: 0 ${margin_small} 0 0;
-    text-color: ${cyberpunk_neon_cyan};
+    text-color: ${accent_primary};
     background-color: transparent;
 }
 
@@ -87,7 +87,7 @@ entry {
 
 case-indicator {
     spacing: 0;
-    text-color: ${medieval_royal_gold};
+    text-color: ${neutral_primary};
     background-color: transparent;
 }
 
@@ -106,10 +106,10 @@ listview {
 scrollbar {
     width: 4;
     border: 0;
-    handle-color: ${cyberpunk_neon_cyan};
+    handle-color: ${accent_primary};
     handle-width: 8;
     padding: 0;
-    background-color: ${primary_bg_secondary};
+    background-color: ${primary_secondary};
 }
 
 element {
@@ -122,7 +122,7 @@ element {
 }
 
 element normal.normal {
-    background-color: ${primary_bg_primary};
+    background-color: ${primary_primary};
     text-color: ${text_primary};
 }
 
@@ -132,15 +132,15 @@ element normal.urgent {
 }
 
 element normal.active {
-    background-color: ${cyberpunk_neon_cyan};
-    text-color: ${primary_bg_primary};
+    background-color: ${accent_primary};
+    text-color: ${primary_primary};
 }
 
 element selected.normal {
-    background-color: ${cyberpunk_neon_cyan};
-    text-color: ${primary_bg_primary};
+    background-color: ${accent_primary};
+    text-color: ${primary_primary};
     border: 1;
-    border-color: ${medieval_royal_gold};
+    border-color: ${neutral_primary};
 }
 
 element selected.urgent {
@@ -149,12 +149,12 @@ element selected.urgent {
 }
 
 element selected.active {
-    background-color: ${medieval_royal_gold};
-    text-color: ${primary_bg_primary};
+    background-color: ${neutral_primary};
+    text-color: ${primary_primary};
 }
 
 element alternate.normal {
-    background-color: ${primary_bg_secondary};
+    background-color: ${primary_secondary};
     text-color: ${text_primary};
 }
 
@@ -164,8 +164,8 @@ element alternate.urgent {
 }
 
 element alternate.active {
-    background-color: ${cyberpunk_neon_cyan};
-    text-color: ${primary_bg_primary};
+    background-color: ${accent_primary};
+    text-color: ${primary_primary};
 }
 
 element-icon {
@@ -177,7 +177,7 @@ element-icon {
 element-text {
     background-color: transparent;
     text-color: inherit;
-    highlight: bold ${medieval_royal_gold};
+    highlight: bold ${neutral_primary};
     vertical-align: 0.5;
 }
 
@@ -191,14 +191,14 @@ mode-switcher {
 button {
     border: 1;
     border-radius: ${rounding};
-    border-color: ${cyberpunk_neon_cyan};
-    background-color: ${primary_bg_secondary};
+    border-color: ${accent_primary};
+    background-color: ${primary_secondary};
     text-color: ${text_primary};
     padding: ${margin_small} ${margin_medium};
 }
 
 button selected {
-    background-color: ${cyberpunk_neon_cyan};
-    text-color: ${primary_bg_primary};
-    border-color: ${medieval_royal_gold};
+    background-color: ${accent_primary};
+    text-color: ${primary_primary};
+    border-color: ${neutral_primary};
 }

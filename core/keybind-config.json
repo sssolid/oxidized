@@ -165,7 +165,7 @@
           "description": "Configuration Editor"
         },
         "SUPER, L": {
-          "command": "exec, swaylock",
+          "command": "exec, hyprlock",
           "description": "Lock Screen"
         },
         "SUPER SHIFT, S": {
