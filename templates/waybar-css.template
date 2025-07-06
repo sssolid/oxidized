@@ -3,7 +3,7 @@
 /* Sharp edges, proper spacing, medieval-cyber aesthetic */
 
 * {
-    font-family: '${font_primary}', monospace;
+    font-family: 'Metamorphous', '${font_primary}', monospace;
     font-size: ${font_size_normal}px;
     min-height: 0;
     border: none;
@@ -124,6 +124,8 @@ window#waybar {
 
 /* Base styling for all modules */
 #clock,
+#cpu,
+#memory,
 #pulseaudio,
 #network,
 #bluetooth,
@@ -132,6 +134,7 @@ window#waybar {
 #workspaces button,
 #waybar-vd,
 #custom-power,
+#custom-screenrec,
 #custom-zerotier {
     background-color: rgba(216, 200, 160, 0.1);  /* Parchment color with semi-opacity */
     color: ${text_primary};
@@ -149,6 +152,8 @@ window#waybar {
 
 /* Hover/active glow effect — subtle rune-like magic pulse */
 #clock:hover,
+#cpu:hover,
+#memory:hover,
 #pulseaudio:hover,
 #network:hover,
 #bluetooth:hover,
@@ -157,6 +162,7 @@ window#waybar {
 #workspaces button:hover,
 #waybar-vd button:hover,
 #custom-power:hover,
+#custom-screenrec:hover,
 #custom-zerotier:hover {
     background-color: rgba(230, 210, 170, 0.25);
     border-color: #a07840;
@@ -278,6 +284,20 @@ window#waybar {
     background: linear-gradient(135deg, ${status_error}, ${status_error});
     border-color: ${status_error};
     box-shadow: 0 0 8px ${status_error};
+}
+
+#custom-screenrec.recording {
+    background-color: ${status_success};
+    border: 0px;
+    padding: 0px 8px 0px 4px;
+    font-size: ${font_size_icon_large}px;
+}
+#custom-screenrec.idle {
+    background-color: transparent;
+    border: 0px;
+    padding: 0px 8px 0px 4px;
+    font-size: ${font_size_icon_large}px;
+    color: ${status_info};
 }
 
 /* Tooltips - parchment style */

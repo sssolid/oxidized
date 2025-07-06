@@ -37,11 +37,11 @@
       "info": "#8f7f56"
     },
     "semantic": {
-      "border_active": "neutral.border_light",
-      "border_inactive": "neutral.border_dark",
-      "accent_primary": "accent.primary",
-      "accent_secondary": "accent.secondary",
-      "shadow": "rgba(0, 0, 0, 0.88)"
+      "border_active": "#4c4c4e",
+      "border_inactive": "#2f2f2f",
+      "accent_primary": "#a78a4f",
+      "accent_secondary": "#4e4e50",
+      "shadow": "#000000"
     }
   },
   "typography": {
@@ -80,7 +80,7 @@
       "render_power": 2
     },
     "animations": {
-      "enabled": true,
+      "enabled": false,
       "speed_multiplier": 1.2,
       "curves": {
         "primary": "0.25, 0.46, 0.45, 0.94",

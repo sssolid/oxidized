@@ -39,6 +39,21 @@ class ThemeGenerator:
             print("❌ Keybind config not found. Please ensure keybind-config.json exists.")
             sys.exit(1)
 
+    def hex_to_rgba(self, hexstr):
+        """Convert a hex color (#RRGGBB or #RRGGBBAA) to 'rgba(R,G,B,1.0)'."""
+        h = hexstr.lstrip('#').lower()
+
+        if len(h) == 6 or len(h) == 8:
+            try:
+                r = int(h[0:2], 16)
+                g = int(h[2:4], 16)
+                b = int(h[4:6], 16)
+            except ValueError:
+                raise ValueError(f"Invalid hex digits in: {hexstr!r}")
+            return f"rgba({r},{g},{b},1.0)"
+        else:
+            raise ValueError(f"Invalid hex length: {hexstr!r}")
+
     def resolve_color(self, color_ref):
         """Resolve color references like 'cyberpunk.neon_cyan' to actual hex values"""
         if color_ref.startswith('#') or color_ref.startswith('rgba'):
@@ -59,6 +74,7 @@ class ThemeGenerator:
             for name, value in color_group.items():
                 colors[category][name] = self.resolve_color(value)
                 colors[category][name + "_no_hash"] = self.resolve_color(value)[1:]
+                colors[category][name + "_rgba"] = self.hex_to_rgba(value)
         return colors
 
     def get_template_variables(self):
@@ -139,35 +155,40 @@ class ThemeGenerator:
             return Template(f.read())
 
     def generate_from_template(self, template_name, output_path, additional_vars=None):
-        """Generate a configuration file from a template"""
-        template = self.load_template(template_name)
-        if not template:
+        raw_template = self.load_template(template_name)
+        if not raw_template:
             return False
 
-        # Get base variables
-        vars_dict = self.get_template_variables()
+        # If it's a Template object, get the raw string
+        if isinstance(raw_template, Template):
+            raw_template = raw_template.template
 
-        # Add any additional variables
+        # Escape ALL $ signs not part of ${...}
+        # This turns:
+        #   $TIME → $$TIME
+        #   $DATE$ → $$DATE$
+        #   cmd[...] → cmd[...]
+        #   ${something} → stays untouched
+        sanitized = re.sub(r'\$(?!\{)', r'$$', raw_template)
+
+        template = Template(sanitized)
+
+        vars_dict = self.get_template_variables()
         if additional_vars:
             vars_dict.update(additional_vars)
 
         try:
-            content = template.substitute(vars_dict)
+            content = template.safe_substitute(vars_dict)
 
-            # Ensure output directory exists
             output_path.parent.mkdir(parents=True, exist_ok=True)
-
-            # Write the file
             with open(output_path, 'w') as f:
                 f.write(content)
 
             return True
-        except KeyError as e:
-            print(f"❌ Template variable missing: {e}")
-            return False
         except Exception as e:
             print(f"❌ Error generating {template_name}: {e}")
             return False
+
 
     def generate_keybindings(self):
         """Generate keybindings configuration"""
@@ -210,19 +231,19 @@ class ThemeGenerator:
             keybindings += "bind = SUPER, bracketleft, backcyclevdesks\n"
             keybindings += "bind = SUPER, bracketright, cyclevdesks\n"
             keybindings += "bind = SUPER, 1, vdesk, 1\n"
-            keybindings += "bind = SUPER, 1, exec, swww img ~/.config/hypr-system/wallpapers/knight.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 1, exec, swww img ~/.config/hypr-system/wallpapers/knight.png --transition-type center --transition-step 30 --transition-duration 1\n"
             keybindings += "bind = SUPER, 2, vdesk, 2\n"
-            keybindings += "bind = SUPER, 2, exec, swww img ~/.config/hypr-system/wallpapers/armory.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 2, exec, swww img ~/.config/hypr-system/wallpapers/armory.png --transition-type center --transition-step 30 --transition-duration 1\n"
             keybindings += "bind = SUPER, 3, vdesk, 3\n"
-            keybindings += "bind = SUPER, 3, exec, swww img ~/.config/hypr-system/wallpapers/tavern.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 3, exec, swww img ~/.config/hypr-system/wallpapers/tavern.png --transition-type center --transition-step 30 --transition-duration 1\n"
             keybindings += "bind = SUPER, 4, vdesk, 4\n"
-            keybindings += "bind = SUPER, 4, exec, swww img ~/.config/hypr-system/wallpapers/library.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 4, exec, swww img ~/.config/hypr-system/wallpapers/library.png --transition-type center --transition-step 30 --transition-duration 1\n"
             keybindings += "bind = SUPER, 5, vdesk, 5\n"
-            keybindings += "bind = SUPER, 5, exec, swww img ~/.config/hypr-system/wallpapers/church.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 5, exec, swww img ~/.config/hypr-system/wallpapers/church.png --transition-type center --transition-step 30 --transition-duration 1\n"
             keybindings += "bind = SUPER, 6, vdesk, 6\n"
-            keybindings += "bind = SUPER, 6, exec, swww img ~/.config/hypr-system/wallpapers/crypt.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 6, exec, swww img ~/.config/hypr-system/wallpapers/crypt.png --transition-type center --transition-step 30 --transition-duration 1\n"
             keybindings += "bind = SUPER, 7, vdesk, 7\n"
-            keybindings += "bind = SUPER, 7, exec, swww img ~/.config/hypr-system/wallpapers/dungeon.png --transition-type center --transition-step 30 --transition-duration 1.5\n"
+            keybindings += "bind = SUPER, 7, exec, swww img ~/.config/hypr-system/wallpapers/dungeon.png --transition-type center --transition-step 30 --transition-duration 1\n"
             keybindings += "bind = SUPER SHIFT, 1, movetodesksilent, 1\n"
             keybindings += "bind = SUPER SHIFT, 2, movetodesksilent, 2\n"
             keybindings += "bind = SUPER SHIFT, 3, movetodesksilent, 3\n"
@@ -323,6 +344,7 @@ class ThemeGenerator:
             ("hypr-rules", self.output_dir / "hypr" / "configs" / "rules.conf"),
             ("hypr-monitors", self.output_dir / "hypr" / "configs" / "monitors.conf"),
             ("hypr-autostart", self.output_dir / "hypr" / "configs" / "autostart.conf"),
+            ("hyprlock", self.output_dir / "hypr" / "hyprlock.conf"),
             ("waybar-css", self.output_dir / "waybar" / "style.css"),
             ("waybar-config", self.output_dir / "waybar" / "config.jsonc"),
             ("rofi-rasi", self.output_dir / "rofi" / "config.rasi"),

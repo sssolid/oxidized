@@ -1,0 +1,84 @@
+general {
+    grace = 3
+}
+
+image {
+    monitor =
+    path = ${config_dir}/media/lock_crest.png
+    size = 512
+    border_size = 0          # disable border
+    border_color = rgba(0,0,0,0)  # transparent border (in case it's enabled)
+    rounding = 0             # no circular mask
+    position = 0, -450
+}
+
+background {
+    monitor =
+    path = screenshot
+    blur_size = 8
+    blur_passes = 3
+    noise = 0.04
+    contrast = 0.95
+    brightness = 0.95
+    vibrancy = 0.25
+    vibrancy_darkness = 0.3
+}
+
+label {
+    monitor =
+    text = $TIME
+    font_family = "Metamorphous"
+    font_size = 48
+    color = ${text_primary_rgba}
+    halign = center
+    valign = center
+    position = 0, -120
+}
+
+label {
+    monitor =
+    text = cmd[update:60000] date +"%A, %d %B %Y"
+    font_family = "Metamorphous"
+    font_size = 20
+    color = ${text_primary_rgba}
+    halign = center
+    valign = center
+    position = 0, -70
+}
+
+label {
+    monitor =
+    text = $USER
+    font_family = "Metamorphous"
+    font_size = 18
+    color = ${text_tertiary_rgba}
+    halign = center
+    valign = center
+    position = 0, 100
+}
+
+input-field {
+    monitor =
+    size = 360, 60
+    outline_thickness = 2
+
+    outer_color = ${text_primary_rgba}
+    inner_color = ${text_primary_rgba}
+    font_color = ${text_tertiary_rgba}
+
+    font_family = JetBrainsMono Nerd Font
+    placeholder_text = "Speak, friend, and enter..."
+
+    dots_center = true
+    fade_on_empty = true
+
+    # dot sizing
+    dots_size = 0.4        # relative to field height (0.2–0.8)
+    dots_spacing = 0.15    # relative spacing
+
+    fail_color = ${text_accent_rgba}
+
+    position = 0, 0
+    halign = center
+    valign = center
+}

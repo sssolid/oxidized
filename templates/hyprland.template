@@ -57,7 +57,7 @@ decoration {
         enabled = ${shadow_enabled}
         range = ${shadow_range}
         render_power = ${shadow_render_power}
-        color = ${shadow}
+        color = ${semantic_shadow_rgba}
     }
 
     dim_inactive = true

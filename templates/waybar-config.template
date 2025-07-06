@@ -10,6 +10,7 @@
     "custom/logo",
     // "hyprland/workspaces",
     "cffi/virtual-desktops",
+    "custom/screenrec",
     "hyprland/window"
   ],
   "modules-center": [
@@ -17,6 +18,8 @@
   ],
   "modules-right": [
     "tray",
+    "cpu",
+    "memory",
     "custom/zerotier",
     "network",
     "bluetooth",
@@ -74,6 +77,15 @@
     "format": "{}",
     "max-length": 50,
     "tooltip": false
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "CPU: {usage}%"
+  },
+  "memory": {
+    "interval": 30,
+    "format":
+    "RAM: {percentage}%"
   },
   "clock": {
     "format": "{:%H:%M 🕐 %a %d %b}",
@@ -142,6 +154,14 @@
     "tooltip": true,
     "on-click": "~/.config/hypr-system/scripts/zerotier-control.sh"
   },
+  "custom/screenrec": {
+  "exec": "~/.config/hypr-system/scripts/screen-recorder.sh status",
+  "interval": 2,
+  "return-type": "json",
+  "on-click": "~/.config/hypr-system/scripts/screen-recorder.sh toggle",
+  "on-click-right": "~/.config/hypr-system/scripts/screen-recorder.sh open",
+  "tooltip": true
+},
   "tray": {
     "spacing": 10
   },

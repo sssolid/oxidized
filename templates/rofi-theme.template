@@ -38,6 +38,7 @@ mainbox {
     border: 0;
     padding: 0;
     spacing: ${margin_medium};
+    background-color: transparent;
 }
 
 message {
